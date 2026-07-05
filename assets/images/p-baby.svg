@@ -1,0 +1,15 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="bgGrad-p-baby" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#E3F2FD"/>
+<stop offset="1" stop-color="#FFFFFF"/>
+</linearGradient>
+</defs>
+<rect width="400" height="400" fill="url(#bgGrad-p-baby)"/>
+
+<rect x="170" y="160" width="60" height="140" rx="16" fill="#90CAF9"/>
+<rect x="180" y="110" width="40" height="55" rx="10" fill="#FFFFFF"/>
+<ellipse cx="200" cy="105" rx="22" ry="14" fill="#FFCDD2"/>
+<rect x="178" y="200" width="44" height="60" fill="#FFFFFF" opacity="0.7"/>
+
+</svg>

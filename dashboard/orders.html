@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Orders — FreshlyMarket</title>
+<meta name="description" content="View your order history, delivery status, and invoices.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/header-footer.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+<link rel="stylesheet" href="../assets/css/responsive.css">
+<link rel="stylesheet" href="../assets/css/dark-mode.css">
+<link rel="stylesheet" href="../assets/css/rtl.css">
+<link rel="stylesheet" href="assets/css/dashboard.css">
+<link rel="stylesheet" href="assets/css/dashboard-responsive.css">
+</head>
+<body>
+<header id="main-header"></header>
+
+<div class="dashboard-layout">
+  <aside id="dashboard-sidebar"></aside>
+
+  <main class="dash-main">
+    <button class="dash-mobile-toggle" id="dashMobileToggle" aria-label="Open dashboard menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+
+    <div class="dash-header-row reveal">
+      <div><h1>My Orders</h1><p style="color:var(--text-secondary);">Track current orders and review your order history.</p></div>
+    </div>
+
+    <div class="tabs reveal">
+      <div class="tab-list">
+        <button class="tab-btn active" data-tab="all">All Orders</button>
+        <button class="tab-btn" data-tab="active">Active</button>
+        <button class="tab-btn" data-tab="delivered">Delivered</button>
+        <button class="tab-btn" data-tab="cancelled">Cancelled</button>
+      </div>
+      <div class="tab-panel active" data-tab="all"><div class="orders-grid" id="ordersAll"></div></div>
+      <div class="tab-panel" data-tab="active"><div class="orders-grid" id="ordersActive"></div></div>
+      <div class="tab-panel" data-tab="delivered"><div class="orders-grid" id="ordersDelivered"></div></div>
+      <div class="tab-panel" data-tab="cancelled"><div class="orders-grid" id="ordersCancelled"></div></div>
+    </div>
+  </main>
+</div>
+
+<footer id="main-footer"></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/animations.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/sidebar.js"></script>
+<script src="assets/js/dashboard.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  if (window.FM_ORDERS && window.FM_renderOrderCard){
+    const all = window.FM_ORDERS;
+    document.getElementById("ordersAll").innerHTML = all.map(o => window.FM_renderOrderCard(o)).join("");
+    document.getElementById("ordersActive").innerHTML = all.filter(o=>o.status==="transit"||o.status==="processing").map(o => window.FM_renderOrderCard(o)).join("") || "<p>No active orders.</p>";
+    document.getElementById("ordersDelivered").innerHTML = all.filter(o=>o.status==="delivered").map(o => window.FM_renderOrderCard(o)).join("");
+    document.getElementById("ordersCancelled").innerHTML = all.filter(o=>o.status==="cancelled").map(o => window.FM_renderOrderCard(o)).join("") || "<p>No cancelled orders.</p>";
+  }
+});
+</script>
+</body>
+</html>

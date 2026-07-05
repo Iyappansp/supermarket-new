@@ -1,0 +1,32 @@
+/* =========================================================
+   DARK MODE — supplemental overrides
+   Most theming is handled via CSS variables in style.css
+   ([data-theme="dark"] block). This file covers remaining
+   hard-coded contrast fixes for specific components.
+   ========================================================= */
+
+[data-theme="dark"] .top-bar{ background: var(--color-primary-dark); }
+[data-theme="dark"] .header-search form{ background: var(--surface-2); }
+[data-theme="dark"] .mega-menu{ border-color: var(--color-border); }
+[data-theme="dark"] .skeleton{
+  background: linear-gradient(90deg, #232A33 25%, #2C333D 37%, #232A33 63%);
+}
+[data-theme="dark"] .footer-bottom .pay-icons span{ background: rgba(255,255,255,.06); color:#cfd5db; }
+[data-theme="dark"] .product-card .qa-btn{ background: rgba(30,36,44,.95); color:#F3F5F7; }
+[data-theme="dark"] .badge-organic{ background: rgba(76,175,80,.18); }
+[data-theme="dark"] .hero-banner,
+[data-theme="dark"] .section-tinted{ background: var(--surface-1); }
+[data-theme="dark"] img.tone-on-dark{ filter: brightness(.92) contrast(1.05); }
+[data-theme="dark"] .form-control,
+[data-theme="dark"] .auth-card input,
+[data-theme="dark"] .form-input{
+  background: var(--surface-2);
+  border-color: var(--color-border);
+  color: var(--text-primary);
+}
+[data-theme="dark"] .testimonial-card,
+[data-theme="dark"] .offer-card,
+[data-theme="dark"] .dept-card,
+[data-theme="dark"] .brand-card{ background: var(--surface-card); }
+[data-theme="dark"] ::selection{ background: var(--color-primary); color:#fff; }
+[data-theme="dark"] .btn-secondary{ color: var(--color-dark); }

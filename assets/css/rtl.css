@@ -1,0 +1,60 @@
+/* =========================================================
+   RTL SUPPORT — applied when <html dir="rtl">
+   Most spacing already uses logical properties (inline-start/end)
+   in the core stylesheets. This file handles the remaining
+   directional fixes: icons, transforms, text-align, carousels.
+   ========================================================= */
+
+[dir="rtl"]{ text-align: right; }
+
+[dir="rtl"] .nav-row .nav-list svg,
+[dir="rtl"] .has-mega svg{
+  transform: scaleX(-1);
+}
+[dir="rtl"] .has-mega:hover svg{ transform: scaleX(-1) rotate(180deg); }
+
+/* Flip directional chevrons / arrows but not symmetric icons */
+[dir="rtl"] .icon-flip{ transform: scaleX(-1); }
+
+/* Breadcrumb arrow direction */
+[dir="rtl"] .breadcrumb-bar .crumbs svg{ transform: scaleX(-1); }
+
+/* Hero split sections: reverse order so image/content swap sides naturally */
+[dir="rtl"] .split-hero{ direction: rtl; }
+[dir="rtl"] .row{ direction: rtl; }
+[dir="rtl"] .row > *{ direction: rtl; }
+
+/* Carousels / sliders - reverse scroll direction logically */
+[dir="rtl"] .carousel-track{ direction: rtl; }
+[dir="rtl"] .slider-arrows .arrow-prev svg,
+[dir="rtl"] .slider-arrows .arrow-next svg{ transform: scaleX(-1); }
+
+/* Form fields */
+[dir="rtl"] input, [dir="rtl"] select, [dir="rtl"] textarea{ text-align: right; }
+[dir="rtl"] .header-search input{ text-align: right; }
+
+/* Mobile drawer slides from the correct side (handled via inset-inline-start already) */
+[dir="rtl"] .mobile-drawer{ direction: rtl; }
+
+/* Dashboard sidebar mirrors to the right */
+[dir="rtl"] .dashboard-layout{ direction: rtl; }
+
+/* Countdown timer digits stay LTR for legibility even in RTL pages */
+[dir="rtl"] .countdown{ direction: ltr; }
+[dir="rtl"] .countdown .cd-label{ direction: rtl; }
+
+/* Number badges / price should remain LTR for digit legibility, label flips */
+[dir="rtl"] .price-ltr{ direction: ltr; unicode-bidi: isolate; }
+
+/* Stepper / quantity selector order mirrors naturally via flex + RTL, no override needed */
+
+/* Checkbox/radio + label gap already uses gap, fine in RTL */
+
+/* Table direction */
+[dir="rtl"] table{ direction: rtl; }
+
+/* Tooltip / dropdown carets */
+[dir="rtl"] .dropdown-caret{ transform: scaleX(-1); }
+
+/* Scrollbar-based components - ensure horizontal scroll snaps correctly */
+[dir="rtl"] .scroll-x{ direction: rtl; }

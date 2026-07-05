@@ -1,0 +1,14 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="bgGrad-p-kitchen" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#ECEFF1"/>
+<stop offset="1" stop-color="#FFFFFF"/>
+</linearGradient>
+</defs>
+<rect width="400" height="400" fill="url(#bgGrad-p-kitchen)"/>
+
+<ellipse cx="190" cy="230" rx="90" ry="35" fill="#9E9E9E"/>
+<ellipse cx="190" cy="218" rx="90" ry="32" fill="#BDBDBD"/>
+<rect x="270" y="205" width="90" height="16" rx="8" fill="#8D6240"/>
+
+</svg>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — FreshlyMarket</title>
+<meta name="description" content="Get in touch with FreshlyMarket — store locations, business hours, and customer support.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/header-footer.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/responsive.css">
+<link rel="stylesheet" href="assets/css/dark-mode.css">
+<link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+<body>
+<header id="main-header"></header>
+
+<div class="page-header">
+  <div class="container">
+    <h1>Contact Us</h1>
+    <p>We're here to help — reach out any time.</p>
+  </div>
+</div>
+<div class="breadcrumb-bar">
+  <div class="container crumbs">
+    <a href="index.html">Home</a>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    <span class="current">Contact</span>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="row" style="display:grid;grid-template-columns:1fr 1.2fr;gap:2.5rem;">
+      <div class="reveal">
+        <h3 style="margin-bottom:1.25rem;">Get in Touch</h3>
+        <div style="display:flex;flex-direction:column;gap:1rem;margin-bottom:2rem;">
+          <div class="contact-info-card card-hover">
+            <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.97.36 1.93.67 2.85a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.92.31 1.88.54 2.85.67A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div><h3 style="font-size:.98rem;margin-bottom:.2rem;">Phone</h3><p class="fs-sm" style="margin:0;">1-800-FRESH-01 (Mon–Sun, 7am–11pm)</p></div>
+          </div>
+          <div class="contact-info-card card-hover">
+            <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg></div>
+            <div><h3 style="font-size:.98rem;margin-bottom:.2rem;">Email</h3><p class="fs-sm" style="margin:0;">support@freshlymarket.example</p></div>
+          </div>
+          <div class="contact-info-card card-hover">
+            <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+            <div><h3 style="font-size:.98rem;margin-bottom:.2rem;">Business Hours</h3><p class="fs-sm" style="margin:0;">7:00 AM – 11:00 PM, Every Day</p></div>
+          </div>
+        </div>
+
+        <h3 style="margin-bottom:1rem;">Store Locations</h3>
+        <div style="display:flex;flex-direction:column;gap:.85rem;">
+          <div class="card-hover" style="padding:1rem;"><strong>Downtown Branch</strong><p class="fs-sm" style="margin:.2rem 0 0;">120 Market Street, City Center</p></div>
+          <div class="card-hover" style="padding:1rem;"><strong>Riverside Branch</strong><p class="fs-sm" style="margin:.2rem 0 0;">45 Riverside Avenue, North District</p></div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <h3 style="margin-bottom:1.25rem;">Send Us a Message</h3>
+        <form onsubmit="event.preventDefault(); this.reset(); alert('Message sent! We will respond within 24 hours.');">
+          <div class="grid grid-2">
+            <div class="form-group"><label class="form-label">Full Name</label><input type="text" class="form-control" required placeholder="Your name"></div>
+            <div class="form-group"><label class="form-label">Email Address</label><input type="email" class="form-control" required placeholder="you@example.com"></div>
+          </div>
+          <div class="form-group"><label class="form-label">Subject</label><input type="text" class="form-control" required placeholder="What can we help with?"></div>
+          <div class="form-group"><label class="form-label">Message</label><textarea class="form-control" required placeholder="Tell us more..."></textarea></div>
+          <button type="submit" class="btn btn-primary btn-block btn-lg">Send Message</button>
+        </form>
+
+        <div class="map-container reveal" style="margin-top:1.5rem; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--color-border); height: 320px; box-shadow: var(--shadow-sm);">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.018288599427!2d-122.41941552358896!3d37.774929279759245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085807bedc51785%3A0xe543df5e975a5223!2sMarket%20St%2C%20San%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="main-footer"></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/animations.js"></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bakery — FreshlyMarket</title>
+<meta name="description" content="Fresh bread, cakes, cookies and pastries baked daily in-store.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/header-footer.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/responsive.css">
+<link rel="stylesheet" href="assets/css/dark-mode.css">
+<link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+<body>
+<header id="main-header"></header>
+
+<div class="page-header">
+  <div class="container">
+    <h1>Bakery</h1>
+    <p>Bread, cakes, cookies and pastries — baked fresh every morning.</p>
+  </div>
+</div>
+
+<div class="breadcrumb-bar">
+  <div class="container crumbs">
+    <a href="index.html">Home</a>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    <span class="current">Bakery</span>
+  </div>
+</div>
+
+<section id="bakery">
+  <div class="container">
+    <div class="row" style="display:grid;grid-template-columns:260px 1fr;gap:2rem;">
+      <aside class="reveal">
+        <div class="filter-block">
+          <h6>Categories</h6>
+          <label class="filter-check"><input type="checkbox" checked> Bread</label>
+          <label class="filter-check"><input type="checkbox" > Cakes</label>
+          <label class="filter-check"><input type="checkbox" > Cookies</label>
+          <label class="filter-check"><input type="checkbox" > Pastries</label>
+          
+        </div>
+        <div class="filter-block">
+          <h6>Price Range</h6>
+          <input type="range" min="0" max="50" value="25" class="price-range" aria-label="Price range">
+          <div class="row-between fs-sm" style="margin-top:.5rem;color:var(--text-secondary);"><span>$0</span><span>$50+</span></div>
+        </div>
+        <div class="filter-block">
+          <h6>Dietary</h6>
+          <div class="filter-tags">
+            <span class="filter-tag active">All</span>
+            <span class="filter-tag">Organic</span>
+            <span class="filter-tag">Vegan</span>
+            <span class="filter-tag">Gluten-Free</span>
+          </div>
+        </div>
+        <div class="filter-block" style="border-bottom:0;">
+          <h6>Brand</h6>
+          <label class="filter-check"><input type="checkbox" checked> PureBake</label>
+          <label class="filter-check"><input type="checkbox" > GoldenCrust</label>
+          <label class="filter-check"><input type="checkbox" > ArtisanOven</label>
+          
+        </div>
+      </aside>
+      <div>
+        <div class="shop-toolbar reveal">
+          <span class="fs-sm" style="color:var(--text-secondary);">Showing <strong>60</strong> products</span>
+          <select aria-label="Sort products">
+            <option>Sort: Featured</option>
+            <option>Price: Low to High</option>
+            <option>Price: High to Low</option>
+            <option>Newest First</option>
+            <option>Top Rated</option>
+          </select>
+        </div>
+        <div class="grid grid-3 stagger" id="bakeryGrid"></div>
+        <nav class="pagination reveal" aria-label="Pagination">
+          <a href="#"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></a>
+          <span class="active">1</span>
+          <a href="#">2</a>
+          <a href="#">3</a>
+          <a href="#"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-surface">
+  <div class="container">
+    <div class="newsletter-band reveal">
+      <div><h2>Never Miss a Deal</h2><p>Get weekly offers on bakery and more.</p></div>
+      <form onsubmit="event.preventDefault(); this.reset(); alert('Subscribed successfully!');">
+        <input type="email" required placeholder="Enter your email" aria-label="Email">
+        <button type="submit" class="btn btn-secondary">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer id="main-footer"></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/animations.js"></script>
+<script src="assets/js/products-data.js"></script>
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+  if (window.FM_PRODUCTS && window.FM_renderProductCard){
+    const grid = document.getElementById("bakeryGrid");
+    let items = window.FM_PRODUCTS;
+    grid.innerHTML = items.map(p => window.FM_renderProductCard(p, false)).join("");
+  }
+});
+
+</script>
+</body>
+</html>

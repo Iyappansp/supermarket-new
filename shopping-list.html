@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopping List — FreshlyMarket</title>
+<meta name="description" content="Plan your weekly shopping, save favorite items and manage shopping lists.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/header-footer.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/responsive.css">
+<link rel="stylesheet" href="assets/css/dark-mode.css">
+<link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+<body>
+<header id="main-header"></header>
+
+<div class="page-header">
+  <div class="container">
+    <h1>Weekly Shopping List</h1>
+    <p>Plan ahead, save favorites, and reorder your essentials in one tap.</p>
+  </div>
+</div>
+<div class="breadcrumb-bar">
+  <div class="container crumbs">
+    <a href="index.html">Home</a>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    <span class="current">Shopping List</span>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="row" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+
+      <div class="reveal">
+        <div class="row-between" style="margin-bottom:1rem;">
+          <h3 style="margin:0;">My Weekly List</h3>
+          <button class="btn btn-primary btn-sm" id="addItemBtn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+            Add Item
+          </button>
+        </div>
+        <div id="addItemForm" style="display:none;margin-bottom:1rem;" class="row-center">
+          <input type="text" id="newItemInput" class="form-control" placeholder="e.g. Whole wheat bread" style="flex:1;">
+          <button class="btn btn-secondary btn-sm" id="confirmAddBtn">Add</button>
+        </div>
+        <div style="background:var(--surface-card);border:1px solid var(--color-border);border-radius:var(--radius-md);overflow:hidden;">
+          <ul id="shoppingListItems" style="margin:0;">
+            <!-- items injected via JS -->
+          </ul>
+        </div>
+        <div class="row-between" style="margin-top:1.25rem;">
+          <span class="fs-sm" style="color:var(--text-secondary);"><span id="itemsCount">0</span> items · <span id="checkedCount">0</span> checked</span>
+          <button class="btn btn-outline btn-sm" id="clearCheckedBtn">Clear Checked</button>
+        </div>
+        <button class="btn btn-primary btn-block" style="margin-top:1rem;" id="addAllToCartBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.5 3h2l2.7 12.4a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6L21.5 8H6"/></svg>
+          Add All to Cart
+        </button>
+      </div>
+
+      <div class="reveal">
+        <h3 style="margin-bottom:1rem;">Favorite Products</h3>
+        <p class="fs-sm" style="margin-bottom:1.25rem;">Quickly add your most-bought items to this week's list.</p>
+        <div class="grid grid-2" id="favoritesGrid" style="gap:1rem;"></div>
+
+        <div class="info-strip" style="margin-top:1.5rem;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+          Saved lists carry over week to week, and update in real time from your dashboard.
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:2.5rem;">
+      <h3 class="reveal" style="margin-bottom:1rem;">Saved Lists</h3>
+      <div class="grid grid-3 stagger">
+        <div class="card-hover reveal" style="padding:1.5rem;">
+          <div class="row-between"><h3 style="font-size:1rem;margin:0;">Weekly Essentials</h3><span class="badge badge-organic">12 items</span></div>
+          <p class="fs-sm" style="margin:.75rem 0 0;">Milk, bread, eggs, fruit, and pantry staples.</p>
+        </div>
+        <div class="card-hover reveal" style="padding:1.5rem;">
+          <div class="row-between"><h3 style="font-size:1rem;margin:0;">Party Snacks</h3><span class="badge badge-organic">8 items</span></div>
+          <p class="fs-sm" style="margin:.75rem 0 0;">Chips, drinks, dips and party favors.</p>
+        </div>
+        <div class="card-hover reveal" style="padding:1.5rem;">
+          <div class="row-between"><h3 style="font-size:1rem;margin:0;">Cleaning Restock</h3><span class="badge badge-organic">6 items</span></div>
+          <p class="fs-sm" style="margin:.75rem 0 0;">Detergent, sprays, sponges and wipes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="main-footer"></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/animations.js"></script>
+<script src="assets/js/products-data.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  let items = [
+    { name: "Whole Milk (2L)", checked: false },
+    { name: "Sourdough Bread", checked: true },
+    { name: "Free-Range Eggs (12 pk)", checked: false },
+    { name: "Royal Gala Apples", checked: false },
+    { name: "Multi-Surface Cleaner", checked: true },
+  ];
+
+  const list = document.getElementById("shoppingListItems");
+  const itemsCount = document.getElementById("itemsCount");
+  const checkedCount = document.getElementById("checkedCount");
+
+  function render(){
+    list.innerHTML = items.map((item, i) => `
+      <li style="display:flex;align-items:center;gap:.85rem;padding:.9rem 1.25rem;border-bottom:1px solid var(--color-border);">
+        <input type="checkbox" ${item.checked ? "checked" : ""} data-index="${i}" class="list-check" style="width:18px;height:18px;accent-color:var(--color-primary);flex-shrink:0;">
+        <span style="flex:1;${item.checked ? "text-decoration:line-through;color:var(--text-secondary);" : ""}">${item.name}</span>
+        <button class="qa-btn remove-item" data-index="${i}" aria-label="Remove" style="opacity:1;position:static;width:32px;height:32px;background:var(--surface-2);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </li>`).join("");
+    itemsCount.textContent = items.length;
+    checkedCount.textContent = items.filter(i => i.checked).length;
+
+    list.querySelectorAll(".list-check").forEach(cb => {
+      cb.addEventListener("change", e => { items[+e.target.dataset.index].checked = e.target.checked; render(); });
+    });
+    list.querySelectorAll(".remove-item").forEach(btn => {
+      btn.addEventListener("click", e => { items.splice(+e.currentTarget.dataset.index,1); render(); });
+    });
+  }
+  render();
+
+  document.getElementById("addItemBtn").addEventListener("click", () => {
+    const form = document.getElementById("addItemForm");
+    form.style.display = form.style.display === "none" ? "flex" : "none";
+    document.getElementById("newItemInput").focus();
+  });
+  document.getElementById("confirmAddBtn").addEventListener("click", () => {
+    const input = document.getElementById("newItemInput");
+    if (input.value.trim()){ items.push({ name: input.value.trim(), checked:false }); input.value=""; render(); }
+  });
+  document.getElementById("clearCheckedBtn").addEventListener("click", () => {
+    items = items.filter(i => !i.checked); render();
+  });
+  document.getElementById("addAllToCartBtn").addEventListener("click", () => {
+    alert("All list items have been added to your cart!");
+  });
+
+  if (window.FM_PRODUCTS && window.FM_renderProductCard){
+    document.getElementById("favoritesGrid").innerHTML = window.FM_PRODUCTS.slice(0,4).map(p => window.FM_renderProductCard(p,false)).join("");
+  }
+});
+</script>
+</body>
+</html>
