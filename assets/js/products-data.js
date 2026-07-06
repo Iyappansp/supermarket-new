@@ -25,7 +25,7 @@
     { id:12, name:"Organic Quinoa (500g)", cat:"Organic", img: IMG+"p-organic.png", price:6.49, old:null, rating:4.5, badge:"organic", off:null },
     { id:13, name:"Non-Stick Frying Pan 28cm", cat:"Kitchen", img: IMG+"p-kitchen.png", price:18.99, old:22.99, rating:4.6, badge:"sale", off:"17% OFF" },
     { id:14, name:"Frozen Mixed Berries (400g)", cat:"Frozen Foods", img: IMG+"p-frozen.png", price:4.29, old:null, rating:4.4, badge:null, off:null },
-    { id:15, name:"Golden Delicious Apples (1kg)", cat:"Fresh Produce", img: IMG+"p-apple-yellow.png", price:3.19, old:null, rating:4.5, badge:null, off:null },
+    // { id:15, name:"Golden Delicious Apples (1kg)", cat:"Fresh Produce", img: IMG+"p-apple-yellow.png", price:3.19, old:null, rating:4.5, badge:null, off:null },
     { id:16, name:"Greek Style Yogurt (500g)", cat:"Dairy", img: IMG+"p-yogurt.png", price:3.49, old:null, rating:4.7, badge:"new", off:null }
   ];
 

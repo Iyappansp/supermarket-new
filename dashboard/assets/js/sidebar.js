@@ -98,6 +98,49 @@
         overlay.classList.remove("open");
       });
     }
+
+    // Logout confirmation modal logic
+    const logoutBtn = el.querySelector('a[data-page="logout"]');
+    if (logoutBtn) {
+      logoutBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        let modal = document.getElementById("logoutModal");
+        if (!modal) {
+          const modalHTML = `
+            <div class="logout-modal-backdrop" id="logoutModal">
+              <div class="logout-modal-card">
+                <div class="logout-modal-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/>
+                  </svg>
+                </div>
+                <h3>Confirm Logout</h3>
+                <p>Are you sure you want to log out of your FreshlyMarket account?</p>
+                <div class="logout-modal-actions">
+                  <button class="btn btn-outline" id="cancelLogout">Cancel</button>
+                  <button class="btn btn-primary" id="confirmLogout" style="background-color: #dc3545; border-color: #dc3545; color: white;">Logout</button>
+                </div>
+              </div>
+            </div>
+          `;
+          document.body.insertAdjacentHTML("beforeend", modalHTML);
+          modal = document.getElementById("logoutModal");
+          
+          document.getElementById("cancelLogout").addEventListener("click", () => {
+            modal.classList.remove("open");
+          });
+          document.getElementById("confirmLogout").addEventListener("click", () => {
+            window.location.href = logoutBtn.getAttribute("href");
+          });
+          modal.addEventListener("click", (evt) => {
+            if (evt.target === modal) {
+              modal.classList.remove("open");
+            }
+          });
+        }
+        modal.classList.add("open");
+      });
+    }
   }
 
   if (document.readyState === "loading"){
