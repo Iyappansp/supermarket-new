@@ -7,8 +7,10 @@
   font-size:.82rem;
 }
 .top-bar .container{
-  display:flex; align-items:center; justify-content:space-between;
   padding-top:.45rem; padding-bottom:.45rem;
+}
+.top-bar-left-right{
+  display:flex; align-items:center; justify-content:space-between;
   gap: 1rem;
 }
 .top-bar a{ color:#fff; opacity:.92; }
@@ -83,7 +85,7 @@
 .header-search button:hover{ background: var(--color-primary-dark); }
 .header-search button svg{ width:17px; height:17px; }
 
-.header-actions{ display:flex; align-items:center; gap:.5rem; flex-shrink:0; }
+.header-actions{ display:flex; align-items:center; gap:.5rem; flex-shrink:0; margin-inline-start: auto; }
 .header-actions .icon-btn{
   position:relative;
   width:44px;height:44px;border-radius:50%;
@@ -229,26 +231,19 @@
 .theme-toggle svg{ width:19px; height:19px; }
 
 .rtl-toggle{
-  background: none;
-  border: none;
-  color: var(--text-primary);
+  width:44px; height:44px; border-radius:50%;
+  background: var(--surface-2); border:0; color: var(--text-primary);
+  display:flex; align-items:center; justify-content:center;
   font-family: var(--font-heading);
-  font-weight: 600;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 0.5rem 0.85rem;
-  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 0.8rem;
   cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: color var(--transition-base), background var(--transition-base), transform var(--transition-base);
+  transition: background var(--transition-base), color var(--transition-base), transform var(--transition-base);
 }
 .rtl-toggle:hover{
-  color: var(--color-primary);
-  background: var(--color-primary-light);
-  transform: translateY(-2px);
+  background: var(--color-secondary-light);
+  color: var(--text-primary);
+  transform: translateY(-2px) rotate(-8deg);
 }
 .theme-toggle .icon-moon{ display:none; }
 [data-theme="dark"] .theme-toggle .icon-sun{ display:none; }
@@ -317,16 +312,43 @@
 }
 @media (max-width: 768px){
   .top-bar .container{ font-size:.72rem; }
-  .top-bar-left{ gap:.75rem; }
+  .top-bar-left-right{ justify-content: center; }
+  .top-bar-right{ display: none !important; }
+  .top-bar-left{ gap:.75rem; justify-content: center; width: 100%; }
   .header-search{ display:none; }
   .header-main{ height:64px; }
   .brand{ font-size:1.15rem; }
   .brand .brand-mark{ width:34px; height:34px; }
-  .login-btn span{ display:none; }
-  .header-utility .rtl-toggle{ display:none; }
+  .brand img { height: 40px !important; }
+  .dashboard-btn { display: none; }
 }
 @media (max-width: 480px){
   .top-bar-left a:nth-child(2){ display:none; }
+  .brand img { height: 32px !important; }
+  .header-main { gap: 0.4rem; }
+  .header-actions { gap: 0.2rem; }
+  .header-utility { gap: 0.15rem; }
+  .rtl-toggle { padding: 0.25rem 0.4rem; font-size: 0.76rem; }
+  .theme-toggle { width: 34px; height: 34px; }
+  .theme-toggle svg { width: 15px; height: 15px; }
+  .login-btn {
+    padding: 0.35rem 0.6rem;
+    font-size: 0.75rem;
+    border-radius: var(--radius-pill);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+    white-space: nowrap;
+  }
+  .login-btn span {
+    display: inline !important;
+  }
+  .login-btn svg {
+    width: 13px;
+    height: 13px;
+    margin: 0 !important;
+    margin-inline-start: 2px !important;
+  }
 }
 
 /* =========================================================

@@ -24,8 +24,47 @@
   .grid-2, .grid-3, .grid-4, .grid-5, .grid-6{ grid-template-columns: repeat(2,1fr); gap: 1rem; }
 }
 @media (max-width: 480px){
-  .grid-2, .grid-3, .grid-4, .grid-5, .grid-6{ grid-template-columns: repeat(2,1fr); gap: .85rem; }
+  /* Default to single column layout on mobile to prevent horizontal squeezing */
+  .grid-2, .grid-3, .grid-4, .grid-5, .grid-6 { 
+    grid-template-columns: 1fr; 
+    gap: .85rem; 
+  }
+  
+  /* Preserve 2-column layouts on mobile for specific lists (e.g. products, brands, departments) */
+  .grid-2-mobile,
+  .grid:has(.product-card),
+  .grid:has(.dept-card),
+  .grid:has(.brand-card),
+  #groceryGrid,
+  #freshProduceGrid,
+  #householdGrid,
+  #beveragesGrid,
+  #bakeryGrid,
+  #wishlistGrid,
+  #shoppingListGrid,
+  #savedProductsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
   .grid-1-mobile{ grid-template-columns: 1fr; }
+  
+  /* Hide RTL switcher in the header to preserve narrow mobile space */
+  .site-header .rtl-toggle {
+    display: none !important;
+  }
+}
+
+/* Category page sidebar layout */
+.category-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 2rem;
+}
+@media (max-width: 991px) {
+  .category-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }
 
 /* ---- Two-column split layouts (hero, content+image) ---- */

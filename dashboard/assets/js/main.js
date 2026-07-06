@@ -42,10 +42,9 @@
     document.documentElement.setAttribute("dir", dir);
     document.documentElement.setAttribute("lang", dir === "rtl" ? "ar" : "en");
     localStorage.setItem("fm-dir", dir);
-    const rtlBtn = document.getElementById("rtlToggle");
-    if (rtlBtn) {
-      rtlBtn.textContent = dir === "rtl" ? "LTR" : "RTL";
-    }
+    document.querySelectorAll(".rtl-toggle").forEach(btn => {
+      btn.textContent = dir === "rtl" ? "LTR" : "RTL";
+    });
   }
   applyDir(getStoredDir());
 
@@ -59,19 +58,20 @@
         <img src="${ROOT}assets/images/logo.png" alt="FreshlyMarket Logo" style="height: 52px; object-fit: contain;">
       </a>
 
-      <div class="dashboard-header-title">
-        <h2>Customer Portal</h2>
-      </div>
+     
 
       <div class="header-actions">
         <div class="header-utility">
-          <button class="rtl-toggle" id="rtlToggle" aria-label="Toggle right to left layout">RTL</button>
-          <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <button type="button" class="rtl-toggle" id="rtlToggle" aria-label="Toggle right to left layout">RTL</button>
+          <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
             <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
             <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>
           </button>
         </div>
-        <a href="${ROOT}index.html" class="btn btn-outline btn-sm"><span>Back to Store</span></a>
+        <a href="${ROOT}index.html" class="btn btn-outline btn-sm back-to-store-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15" style="margin-inline-end: 4px;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span>Back to Store</span>
+        </a>
       </div>
     </div>
   </div>
@@ -118,21 +118,19 @@
   --------------------------------------------------- */
   function bindLayoutEvents(){
     // Theme toggle
-    const themeBtn = document.getElementById("themeToggle");
-    if (themeBtn){
+    document.querySelectorAll(".theme-toggle").forEach(themeBtn => {
       themeBtn.addEventListener("click", () => {
         const next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
         applyTheme(next);
       });
-    }
+    });
     // RTL toggle
-    const rtlBtn = document.getElementById("rtlToggle");
-    if (rtlBtn){
+    document.querySelectorAll(".rtl-toggle").forEach(rtlBtn => {
       rtlBtn.addEventListener("click", () => {
         const next = document.documentElement.getAttribute("dir") === "rtl" ? "ltr" : "rtl";
         applyDir(next);
       });
-    }
+    });
 
     // Mobile drawer
     const drawer = document.getElementById("mobileDrawer");

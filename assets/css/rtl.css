@@ -58,3 +58,11 @@
 
 /* Scrollbar-based components - ensure horizontal scroll snaps correctly */
 [dir="rtl"] .scroll-x{ direction: rtl; }
+
+/* Flip sidebar collapse button arrow in RTL */
+[dir="rtl"] .sidebar-collapse-btn svg { transform: scaleX(-1); }
+
+/* Flip directional icons in buttons for RTL layout */
+[dir="rtl"] .login-btn svg { transform: scaleX(-1); }
+[dir="rtl"] .dash-nav a[data-page="logout"] svg { transform: scaleX(-1); }
+

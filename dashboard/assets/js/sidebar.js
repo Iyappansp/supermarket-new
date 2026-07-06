@@ -8,6 +8,9 @@
   "use strict";
 
   const sidebarHTML = `
+  <button class="dash-sidebar-close-btn" id="dashSidebarCloseBtn" aria-label="Close sidebar">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
   <div class="dash-user">
     <div class="avatar" style="padding:0;overflow:hidden;"><img src="assets/images/user-avatar.png" alt="Jordan Davis" style="width:100%;height:100%;object-fit:cover;"></div>
     <div class="info">
@@ -83,20 +86,38 @@
       });
     }
 
-    // Mobile drawer toggle
+    // Mobile drawer toggle & overlay management
     const mobileToggle = document.getElementById("dashMobileToggle");
-    const overlay = document.getElementById("dashSidebarOverlay");
+    
+    function closeSidebarMobile() {
+      el.classList.remove("mobile-open");
+      const overlay = document.getElementById("dashSidebarOverlay");
+      if (overlay) overlay.classList.remove("open");
+    }
+
     if (mobileToggle){
       mobileToggle.addEventListener("click", () => {
         el.classList.add("mobile-open");
-        if (overlay) overlay.classList.add("open");
+        let overlay = document.getElementById("dashSidebarOverlay");
+        if (!overlay) {
+          overlay = document.createElement("div");
+          overlay.id = "dashSidebarOverlay";
+          overlay.className = "drawer-overlay";
+          document.body.appendChild(overlay);
+        }
+        overlay.classList.add("open");
+        
+        if (!overlay.dataset.bound) {
+          overlay.addEventListener("click", closeSidebarMobile);
+          overlay.dataset.bound = "true";
+        }
       });
     }
-    if (overlay){
-      overlay.addEventListener("click", () => {
-        el.classList.remove("mobile-open");
-        overlay.classList.remove("open");
-      });
+
+    // Mobile close button
+    const closeBtn = document.getElementById("dashSidebarCloseBtn");
+    if (closeBtn) {
+      closeBtn.addEventListener("click", closeSidebarMobile);
     }
 
     // Logout confirmation modal logic

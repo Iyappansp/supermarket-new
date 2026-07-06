@@ -1449,3 +1449,13 @@ textarea.form-control {
   border-radius: 8px var(--radius-lg) 8px var(--radius-lg) !important;
   box-shadow: 0 12px 30px rgba(76, 175, 80, 0.2) !important;
 }
+
+/* Authentication Page Utility Settings Container */
+.auth-utility {
+  position: absolute;
+  top: 1.5rem;
+  inset-inline-end: 1.5rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
+}

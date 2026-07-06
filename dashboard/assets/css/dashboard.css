@@ -67,6 +67,32 @@
 }
 .dash-mobile-toggle svg{ width:20px;height:20px; }
 
+.dash-sidebar-close-btn {
+  display: none;
+  position: absolute;
+  top: 1rem;
+  inset-inline-end: 1rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  border: none;
+  color: var(--text-primary);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background var(--transition-base), color var(--transition-base);
+}
+.dash-sidebar-close-btn:hover {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+.dash-sidebar-close-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
 @media (max-width: 1023px){
   .dashboard-layout{ grid-template-columns: 1fr; }
   .dash-sidebar{
@@ -77,6 +103,8 @@
   .dash-mobile-toggle{ display:flex; }
   .dash-sidebar.collapsed{ width:80%; max-width:300px; }
   .dash-sidebar.collapsed .nav-label, .dash-sidebar.collapsed .dash-user .info{ display:block; }
+  .dash-sidebar-close-btn { display: flex; }
+  .dash-sidebar .dash-user { margin-top: 1.5rem; }
 }
 
 /* ---- Main content ---- */
@@ -228,4 +256,13 @@
 .logout-modal-actions .btn {
   flex: 1;
   padding: 0.75rem 1rem;
+}
+
+/* Dashboard Header Fluid Container & Flex Layout */
+.dashboard-header-wrap .container {
+  max-width: 100%;
+  padding: 0 2rem;
+}
+.dashboard-header-wrap .header-main {
+  justify-content: space-between;
 }

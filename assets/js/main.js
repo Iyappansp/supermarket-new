@@ -42,10 +42,9 @@
     document.documentElement.setAttribute("dir", dir);
     document.documentElement.setAttribute("lang", dir === "rtl" ? "ar" : "en");
     localStorage.setItem("fm-dir", dir);
-    const rtlBtn = document.getElementById("rtlToggle");
-    if (rtlBtn) {
-      rtlBtn.textContent = dir === "rtl" ? "LTR" : "RTL";
-    }
+    document.querySelectorAll(".rtl-toggle").forEach(btn => {
+      btn.textContent = dir === "rtl" ? "LTR" : "RTL";
+    });
   }
   applyDir(getStoredDir());
 
@@ -54,7 +53,7 @@
   --------------------------------------------------- */
   const headerHTML = `
   <div class="top-bar">
-    <div class="container top-bar-left-right" style="display:flex;align-items:center;justify-content:space-between;">
+    <div class="container top-bar-left-right">
       <div class="top-bar-left">
         <a href="${ROOT}delivery-information.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h11v8H3z"/><path d="M14 10h4l3 3v2h-7z"/><circle cx="7" cy="18" r="1.5"/><circle cx="17" cy="18" r="1.5"/></svg>Free delivery on orders over $50</a>
         <a href="${ROOT}track-order.html">Track Your Order</a>
@@ -89,13 +88,16 @@
 
       <div class="header-actions">
         <div class="header-utility">
-          <button class="rtl-toggle" id="rtlToggle" aria-label="Toggle right to left layout">RTL</button>
-          <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <button type="button" class="rtl-toggle" id="rtlToggle" aria-label="Toggle right to left layout">RTL</button>
+          <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
             <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
             <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>
           </button>
         </div>
-        <a href="${DASHBOARD_LINK}" class="btn btn-outline btn-sm dashboard-btn"><span>Dashboard</span></a>
+        <a href="${DASHBOARD_LINK}" class="btn btn-outline btn-sm dashboard-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15" style="margin-inline-end: 4px;"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+          <span>Dashboard</span>
+        </a>
         <a href="${ROOT}login.html" class="btn btn-primary btn-sm login-btn"><span>Login</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
@@ -131,6 +133,16 @@
       <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:.75rem;">
         <a href="${ROOT}login.html" class="btn btn-primary btn-block">Login</a>
         <a href="${ROOT}signup.html" class="btn btn-outline btn-block">Create Account</a>
+      </div>
+      <div class="drawer-utility" style="margin-top:2rem; padding-top:1.5rem; border-top:1px solid var(--color-border); display:flex; justify-content:space-between; align-items:center; gap:1rem;">
+        <span style="font-size:0.88rem; font-weight:600; color:var(--text-secondary);">Settings</span>
+        <div style="display:flex; gap:0.5rem;">
+          <button type="button" class="rtl-toggle" aria-label="Toggle right to left layout" style="width:44px; height:44px; border-radius:50%; background:var(--surface-2); border:0; color:var(--text-primary); display:flex; align-items:center; justify-content:center; cursor:pointer; font-family:var(--font-heading); font-weight:700; font-size:0.8rem;">RTL</button>
+          <button type="button" class="theme-toggle" aria-label="Toggle dark mode" style="width:44px; height:44px; border-radius:50%; background:var(--surface-2); border:0; color:var(--text-primary); display:flex; align-items:center; justify-content:center; cursor:pointer;">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:19px; height:19px;"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:19px; height:19px;"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>
+          </button>
+        </div>
       </div>
     </div>
   </aside>
@@ -216,12 +228,32 @@
   function injectLayout() {
     const headerEl = document.getElementById("main-header");
     const footerEl = document.getElementById("main-footer");
+    const authShell = document.querySelector(".auth-shell");
+
     if (headerEl) {
       headerEl.className = "site-header";
       headerEl.innerHTML = headerHTML;
       document.body.insertAdjacentHTML("afterbegin", drawerHTML);
       applyDir(getStoredDir());
     }
+
+    if (authShell && !authShell.querySelector(".auth-utility")) {
+      const authUtilityHTML = `
+      <div class="auth-utility">
+        <button type="button" class="rtl-toggle" aria-label="Toggle right to left layout">RTL</button>
+        <button type="button" class="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:19px; height:19px;"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:19px; height:19px;"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>
+        </button>
+      </div>
+      `;
+      if (window.getComputedStyle(authShell).position === "static") {
+        authShell.style.position = "relative";
+      }
+      authShell.insertAdjacentHTML("beforeend", authUtilityHTML);
+      applyDir(getStoredDir());
+    }
+
     if (footerEl) {
       footerEl.className = "site-footer";
       footerEl.innerHTML = footerHTML;
@@ -245,21 +277,19 @@
   --------------------------------------------------- */
   function bindLayoutEvents() {
     // Theme toggle
-    const themeBtn = document.getElementById("themeToggle");
-    if (themeBtn) {
+    document.querySelectorAll(".theme-toggle").forEach(themeBtn => {
       themeBtn.addEventListener("click", () => {
         const next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
         applyTheme(next);
       });
-    }
+    });
     // RTL toggle
-    const rtlBtn = document.getElementById("rtlToggle");
-    if (rtlBtn) {
+    document.querySelectorAll(".rtl-toggle").forEach(rtlBtn => {
       rtlBtn.addEventListener("click", () => {
         const next = document.documentElement.getAttribute("dir") === "rtl" ? "ltr" : "rtl";
         applyDir(next);
       });
-    }
+    });
 
     // Mobile drawer
     const drawer = document.getElementById("mobileDrawer");

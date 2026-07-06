@@ -26,7 +26,26 @@
 @media (max-width: 420px){
   .dash-stats-grid{ grid-template-columns: 1fr 1fr; }
 }
+@media (max-width: 768px){
+  .dashboard-header-wrap .container { padding: 0 1rem; }
+}
+@media (max-width: 480px){
+  .back-to-store-btn { width: 36px; height: 36px; padding: 0; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; }
+  .back-to-store-btn span { display: none; }
+  .back-to-store-btn svg { margin-inline-end: 0 !important; }
+}
+@media (max-width: 375px){
+  .dash-stats-grid { grid-template-columns: 1fr; }
+  .dash-quick-actions { grid-template-columns: 1fr; }
+}
 
 /* Table-based pages (saved products / delivery tracking lists) keep no horizontal overflow */
 .dash-main table{ width:100%; }
 .dash-main img{ max-width:100%; }
+
+/* Keep RTL toggle visible on mobile dashboard header */
+@media (max-width: 1023px) {
+  .dashboard-header-wrap .rtl-toggle {
+    display: flex !important;
+  }
+}
