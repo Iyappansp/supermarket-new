@@ -13,24 +13,214 @@
 <link rel="stylesheet" href="assets/css/responsive.css">
 <link rel="stylesheet" href="assets/css/dark-mode.css">
 <link rel="stylesheet" href="assets/css/rtl.css">
+<style>
+  /* Custom Styles for Home 2's Premium Interactive Elements */
+  .recipe-planner-card {
+    background: var(--surface-card, #1c2721);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+  }
+  .recipe-tabs {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+  .recipe-tab {
+    padding: 0.6rem 1.25rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-color);
+    background: var(--surface-1);
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 0.92rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+  .recipe-tab.active, .recipe-tab:hover {
+    background: var(--color-primary);
+    color: #fff;
+    border-color: var(--color-primary);
+  }
+  .recipe-content-wrap {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 2rem;
+    align-items: center;
+  }
+  @media (max-width: 768px) {
+    .recipe-content-wrap {
+      grid-template-columns: 1fr;
+    }
+  }
+  .recipe-details h3 {
+    font-size: 1.6rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+  }
+  .recipe-details p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+  .recipe-ingredients {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+  .recipe-ingredients li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .recipe-ingredients li::before {
+    content: '✓';
+    color: var(--color-primary);
+    font-weight: bold;
+  }
+  .recipe-pricing {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .recipe-pricing span {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-decoration: line-through;
+  }
+
+  /* Sourcing Story & Spotlights */
+  .spotlight-card {
+    background: var(--surface-1);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 991px) {
+    .spotlight-card {
+      grid-template-columns: 1fr;
+    }
+  }
+  .spotlight-img {
+    height: 100%;
+    min-height: 320px;
+    background-size: cover;
+    background-position: center;
+  }
+  .spotlight-text {
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* Process Stepper */
+  .step-card {
+    background: var(--surface-1);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    position: relative;
+  }
+  .step-number {
+    position: absolute;
+    top: -1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 800;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  }
+
+  /* Reward Points Calculator */
+  .calc-card {
+    background: var(--surface-card, #1c2721);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-md);
+    text-align: center;
+  }
+  .slider-container {
+    margin: 2.5rem 0;
+  }
+  .range-slider {
+    width: 100%;
+    height: 8px;
+    border-radius: 4px;
+    background: var(--border-color);
+    outline: none;
+    -webkit-appearance: none;
+  }
+  .range-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    transition: transform 0.1s;
+  }
+  .range-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+  }
+  .calc-output {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .calc-metric {
+    background: var(--surface-1);
+    padding: 1.25rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+  }
+  .calc-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-primary-bright);
+    margin-bottom: 0.25rem;
+  }
+</style>
 </head>
 <body>
 <header id="main-header"></header>
 
-<!-- ===================== SPLIT HERO ===================== -->
-<section class="hero-banner" style="background: linear-gradient(120deg, var(--color-secondary-light) 0%, var(--surface-1) 60%);">
+<!-- ===================== LIFESTYLE HERO ===================== -->
+<section class="hero-banner has-bg" style="background-image: url('assets/images/home2-hero.png');">
   <div class="container">
-    <div class="hero-grid">
-      <div class="reveal">
-        <span class="eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>Live Fresh, Live Well</span>
-        <h1>A Lifestyle Built Around <span class="text-secondary-c">Real Food.</span></h1>
-        <p class="hero-sub">Seasonal collections, organic essentials, and meal inspiration — curated for the way you actually want to eat and live.</p>
-        <div class="hero-cta">
-          <a href="fresh-produce.html#organic" class="btn btn-primary btn-lg">Explore Organic</a>
-          <a href="index.html" class="btn btn-outline btn-lg">Classic Homepage</a>
-        </div>
+    <div class="hero-content reveal text-center" style="max-width: 800px; margin: 0 auto;">
+      <span class="eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>Live Fresh, Live Well</span>
+      <h1>A Lifestyle Built Around <span class="text-secondary-c">Real Food.</span></h1>
+      <p class="hero-sub">Seasonal collections, organic essentials, and meal inspiration — curated for the way you actually want to eat and live.</p>
+      <div class="hero-cta justify-content-center">
+        <a href="fresh-produce.html#organic" class="btn btn-primary btn-lg">Explore Organic</a>
+        <a href="index.html" class="btn btn-outline btn-lg" style="background: rgba(255,255,255,0.15); color: #fff; border-color: rgba(255,255,255,0.3);">Classic Homepage</a>
       </div>
-      <div class="hero-img reveal"><img src="assets/images/home2-hero.png" alt="Lifestyle grocery illustration"></div>
     </div>
   </div>
 </section>
@@ -38,124 +228,288 @@
 <!-- ===================== SEASONAL COLLECTIONS ===================== -->
 <section>
   <div class="container">
-    <div class="section-head reveal"><span class="eyebrow">This Season</span><h2>Seasonal Collections</h2><p>Hand-picked selections that change with what's actually in season.</p></div>
+    <div class="section-head reveal">
+      <span class="eyebrow">This Season</span>
+      <h2>Seasonal Collections</h2>
+      <p>Hand-picked selections that change with what's actually in season.</p>
+    </div>
     <div class="grid grid-3 stagger">
       <div class="card-hover reveal" style="overflow:hidden;">
         <div class="card-img-zoom" style="aspect-ratio:4/3;"><img src="assets/images/dept-fruits.png" alt="Summer Harvest"></div>
-        <div style="padding:1.25rem;"><h3>Summer Harvest</h3><p class="fs-sm">Sun-ripened fruit and crisp vegetables.</p></div>
+        <div style="padding:1.25rem;">
+          <h3>Summer Harvest</h3>
+          <p class="fs-sm">Sun-ripened fruit and crisp vegetables.</p>
+        </div>
       </div>
       <div class="card-hover reveal" style="overflow:hidden;">
         <div class="card-img-zoom" style="aspect-ratio:4/3;"><img src="assets/images/dept-bakery.png" alt="Comfort Bakes"></div>
-        <div style="padding:1.25rem;"><h3>Comfort Bakes</h3><p class="fs-sm">Warm bread and pastries for cozy mornings.</p></div>
+        <div style="padding:1.25rem;">
+          <h3>Comfort Bakes</h3>
+          <p class="fs-sm">Warm bread and pastries for cozy mornings.</p>
+        </div>
       </div>
       <div class="card-hover reveal" style="overflow:hidden;">
         <div class="card-img-zoom" style="aspect-ratio:4/3;"><img src="assets/images/dept-beverages.png" alt="Hydration Edit"></div>
-        <div style="padding:1.25rem;"><h3>Hydration Edit</h3><p class="fs-sm">Fresh juices and sparkling waters.</p></div>
+        <div style="padding:1.25rem;">
+          <h3>Hydration Edit</h3>
+          <p class="fs-sm">Fresh juices and sparkling waters.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== HEALTHY LIVING ===================== -->
+<!-- ===================== INTERACTIVE RECIPE & DIET PLANNER ===================== -->
 <section class="bg-surface">
   <div class="container">
-    <div class="split">
-      <div class="reveal"><img src="assets/images/dept-grocery.png" alt="Healthy living illustration" style="border-radius:var(--radius-lg);max-width:380px;margin:0 auto;display:block;"></div>
-      <div class="reveal">
-        <span class="eyebrow">Wellness</span>
-        <h2>Healthy Living, Made Easy</h2>
-        <p>From nutrient-dense produce to mindfully sourced pantry staples, we make it simple to build meals that actually nourish you.</p>
-        <ul style="display:flex;flex-direction:column;gap:.6rem;margin-top:1.25rem;color:var(--text-secondary);font-size:.92rem;">
-          <li>✓ Nutrition labels clearly displayed on every product</li>
-          <li>✓ Dietary filters for vegan, gluten-free & low-sugar</li>
-          <li>✓ Curated healthy swaps for everyday staples</li>
-        </ul>
-        <a href="fresh-produce.html" class="btn btn-primary" style="margin-top:1.5rem;">Shop Healthy Picks</a>
+    <div class="section-head reveal">
+      <span class="eyebrow">Interactive Meal Kits</span>
+      <h2>Recipe & Diet Planner</h2>
+      <p>Select your lifestyle path and cook premium meals in minutes.</p>
+    </div>
+    
+    <div class="recipe-planner-card reveal">
+      <div class="recipe-tabs" id="recipeTabs">
+        <button class="recipe-tab active" data-recipe="vegan">Vegan Delight</button>
+        <button class="recipe-tab" data-recipe="keto">Keto Fuel</button>
+        <button class="recipe-tab" data-recipe="family">Family Feast</button>
+        <button class="recipe-tab" data-recipe="quick">15-Min Pasta</button>
+      </div>
+
+      <div class="recipe-content-wrap">
+        <div class="recipe-details">
+          <h3 id="recipeTitle">Green Garden Stir-Fry Kit</h3>
+          <p id="recipeDesc">A vibrant medley of crisp local organic broccoli, sweet carrots, and sugar snap peas tossed in our artisanal garlic-ginger sesame glaze. Perfect for a clean plant-based dinner.</p>
+          <ul class="recipe-ingredients" id="recipeIngredients">
+            <li>Organic Broccoli Crown</li>
+            <li>Local Carrot Bunch</li>
+            <li>Artisanal Sesame Glaze</li>
+            <li>Green Scallions</li>
+            <li>Brown Jasmine Rice</li>
+            <li>Organic Firm Tofu</li>
+          </ul>
+          <div class="recipe-pricing">
+            <span id="recipeOldPrice">$18.50</span> <strong id="recipePrice">$14.99</strong>
+          </div>
+          <button class="btn btn-primary btn-lg" onclick="addRecipeBundleToCart()">Add Recipe Box to Cart</button>
+        </div>
+        <div style="text-align: center;">
+          <img id="recipeImg" src="assets/images/dept-fruits.png" alt="Recipe illustration" style="border-radius: var(--radius-md); max-width: 100%; height: 260px; object-fit: cover;">
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== ORGANIC PRODUCTS ===================== -->
-<section id="organic">
-  <div class="container">
-    <div class="row-between reveal" style="margin-bottom:1.5rem;">
-      <div class="section-head" style="text-align:start;margin:0;"><span class="eyebrow">Certified</span><h2>Organic Products</h2></div>
-      <a href="fresh-produce.html#organic" class="btn btn-outline btn-sm">View All</a>
-    </div>
-    <div class="carousel reveal"><div class="carousel-track" id="organicTrack"></div></div>
-  </div>
-</section>
-
-<!-- ===================== MEAL PLANNING INSPIRATION ===================== -->
-<section class="bg-surface">
-  <div class="container">
-    <div class="section-head reveal"><span class="eyebrow">Get Inspired</span><h2>Meal Planning Inspiration</h2></div>
-    <div class="grid grid-3 stagger">
-      <div class="card-hover reveal" style="padding:1.5rem;">
-        <span class="badge badge-organic" style="margin-bottom:.75rem;">15-Min Meals</span>
-        <h3>Weeknight Stir-Fry Kit</h3>
-        <p class="fs-sm">Fresh vegetables, sauce, and protein — ready in 15 minutes.</p>
-      </div>
-      <div class="card-hover reveal" style="padding:1.5rem;">
-        <span class="badge badge-new" style="margin-bottom:.75rem;">Family Favorite</span>
-        <h3>Sunday Roast Bundle</h3>
-        <p class="fs-sm">Everything for a classic Sunday family dinner.</p>
-      </div>
-      <div class="card-hover reveal" style="padding:1.5rem;">
-        <span class="badge badge-sale" style="margin-bottom:.75rem;">Budget Pick</span>
-        <h3>5-Day Meal Prep Box</h3>
-        <p class="fs-sm">Plan your whole week with one easy bundle.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== FEATURED BRANDS ===================== -->
+<!-- ===================== HOW IT WORKS ===================== -->
 <section>
   <div class="container">
-    <div class="section-head reveal"><span class="eyebrow">Trusted</span><h2>Featured Brands</h2></div>
-    <div class="grid grid-6 stagger">
-      <div class="brand-card card-hover reveal">EarthBloom</div>
-      <div class="brand-card card-hover reveal">VitaGrow</div>
-      <div class="brand-card card-hover reveal">NatureNest</div>
-      <div class="brand-card card-hover reveal">LocalRoots</div>
-      <div class="brand-card card-hover reveal">GreenLeaf</div>
-      <div class="brand-card card-hover reveal">PureCare</div>
+    <div class="section-head reveal">
+      <span class="eyebrow">Simplified</span>
+      <h2>Sourced to Doorstep in 3 Steps</h2>
+      <p>How we bring premium, farm-fresh quality directly to your table.</p>
+    </div>
+    <div class="grid grid-3 stagger" style="margin-top: 3rem;">
+      <div class="step-card reveal">
+        <div class="step-number">1</div>
+        <h3 style="margin-top: 1rem; font-size: 1.15rem;">Select Your Box</h3>
+        <p class="fs-sm" style="color: var(--text-secondary); margin: 0.5rem 0 0;">Choose from our organic recipe bundles, customize your produce variety, or add weekly household essentials.</p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-number">2</div>
+        <h3 style="margin-top: 1rem; font-size: 1.15rem;">Shopper Curated</h3>
+        <p class="fs-sm" style="color: var(--text-secondary); margin: 0.5rem 0 0;">Our highly trained in-store personal shoppers select the peak-ripeness produce and highest quality dairy/bakery items.</p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-number">3</div>
+        <h3 style="margin-top: 1rem; font-size: 1.15rem;">Sustainable Delivery</h3>
+        <p class="fs-sm" style="color: var(--text-secondary); margin: 0.5rem 0 0;">Delivered directly to your door in quiet, carbon-neutral electric vans in a flexible, pre-selected delivery window.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== WEEKLY ESSENTIALS ===================== -->
+<!-- ===================== ORGANIC FIELD SPOTLIGHT ===================== -->
 <section class="bg-surface">
   <div class="container">
-    <div class="section-head reveal"><span class="eyebrow">Restock</span><h2>Weekly Essentials</h2></div>
-    <div class="carousel reveal"><div class="carousel-track" id="essentialsTrack"></div></div>
+    <div class="section-head reveal">
+      <span class="eyebrow">Local Roots</span>
+      <h2>Our Organic Farming Partners</h2>
+      <p>We source directly from local growers who prioritize biodiversity and soil health.</p>
+    </div>
+    
+    <div class="spotlight-card reveal">
+      <div class="spotlight-img" style="background-image: url('assets/images/about-story.png');"></div>
+      <div class="spotlight-text">
+        <span class="eyebrow" style="color: var(--color-secondary);">Farmer Spotlight</span>
+        <h3 style="font-size: 1.6rem; margin-bottom: 0.8rem;">GreenValley Organic Farm</h3>
+        <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
+          Located in Cedar Creek, just 30 miles from our downtown market, GreenValley has been our primary organic crop partner since 2014. By committing to non-GMO seeds, zero synthetic pesticides, and regenerative farming practices, they provide the absolute freshest organic leafy greens, heirloom tomatoes, and crisp root vegetables to our customers' tables.
+        </p>
+        <div style="display: flex; gap: 2rem;">
+          <div>
+            <strong style="font-size: 1.8rem; color: var(--color-primary); display: block;">100%</strong>
+            <span style="font-size: 0.8rem; color: var(--text-secondary);">Regenerative Crop Certified</span>
+          </div>
+          <div>
+            <strong style="font-size: 1.8rem; color: var(--color-primary); display: block;">30 mi</strong>
+            <span style="font-size: 0.8rem; color: var(--text-secondary);">Distance to Our Store</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ===================== DELIVERY BENEFITS ===================== -->
+<!-- ===================== WELLNESS BLOG & CHEF'S RECIPES ===================== -->
+<section id="wellness-blog">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Eat Well, Live Well</span>
+      <h2>Wellness Blog & Chef's Recipes</h2>
+      <p>Culinary inspiration and health guides curated by our nutrition experts.</p>
+    </div>
+    <div class="grid grid-3 stagger" style="margin-top:2.5rem;">
+      <div class="card-hover reveal" style="overflow:hidden; display:flex; flex-direction:column; background:var(--surface-1); border:1px solid var(--border-color); border-radius:var(--radius-md);">
+        <div class="card-img-zoom" style="aspect-ratio:16/10; overflow:hidden;"><img src="assets/images/dept-fruits.png" alt="Summer Harvest Vegetables" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div style="padding:1.5rem; display:flex; flex-direction:column; flex:1;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem; font-size:0.8rem; color:var(--color-primary); font-weight:600;">
+            <span>COOKING & PREP</span>
+            <span style="color:var(--text-secondary);">4 Min Read</span>
+          </div>
+          <h3 style="font-size:1.2rem; line-height:1.4; margin-bottom:0.75rem;">5 Quick & Nourishing Summer Harvest Recipes</h3>
+          <p class="fs-sm" style="color:var(--text-secondary); margin:0 0 1.5rem; line-height:1.6; flex:1;">Make the most of sunny season produce with these quick, healthy meals that take less than 20 minutes to prepare.</p>
+          <a href="#" class="btn btn-outline btn-sm" style="align-self:flex-start;">Read Article</a>
+        </div>
+      </div>
+      <div class="card-hover reveal" style="overflow:hidden; display:flex; flex-direction:column; background:var(--surface-1); border:1px solid var(--border-color); border-radius:var(--radius-md);">
+        <div class="card-img-zoom" style="aspect-ratio:16/10; overflow:hidden;"><img src="assets/images/dept-dairy.png" alt="Organic Farming Field" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div style="padding:1.5rem; display:flex; flex-direction:column; flex:1;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem; font-size:0.8rem; color:var(--color-primary); font-weight:600;">
+            <span>NUTRITION</span>
+            <span style="color:var(--text-secondary);">6 Min Read</span>
+          </div>
+          <h3 style="font-size:1.2rem; line-height:1.4; margin-bottom:0.75rem;">The Benefits of Organic Sourcing & Sustainable Farming</h3>
+          <p class="fs-sm" style="color:var(--text-secondary); margin:0 0 1.5rem; line-height:1.6; flex:1;">Why organic farming is better for the soil, biodiversity, and your family's daily health. A deep dive into our sourcing standards.</p>
+          <a href="#" class="btn btn-outline btn-sm" style="align-self:flex-start;">Read Article</a>
+        </div>
+      </div>
+      <div class="card-hover reveal" style="overflow:hidden; display:flex; flex-direction:column; background:var(--surface-1); border:1px solid var(--border-color); border-radius:var(--radius-md);">
+        <div class="card-img-zoom" style="aspect-ratio:16/10; overflow:hidden;"><img src="assets/images/dept-bakery.png" alt="Meal Prep Kitchen" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div style="padding:1.5rem; display:flex; flex-direction:column; flex:1;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem; font-size:0.8rem; color:var(--color-primary); font-weight:600;">
+            <span>HEALTHY HABITS</span>
+            <span style="color:var(--text-secondary);">5 Min Read</span>
+          </div>
+          <h3 style="font-size:1.2rem; line-height:1.4; margin-bottom:0.75rem;">Meal Prep 101: How to Save 5 Hours Every Week</h3>
+          <p class="fs-sm" style="color:var(--text-secondary); margin:0 0 1.5rem; line-height:1.6; flex:1;">Simplify your busy weeknights with these practical steps to organize, prep, and batch-cook fresh food efficiently.</p>
+          <a href="#" class="btn btn-outline btn-sm" style="align-self:flex-start;">Read Article</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== THE FRESH BOX SUBSCRIPTION ===================== -->
+<section class="bg-surface">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Convenient Subscription</span>
+      <h2>Weekly Custom Boxes</h2>
+      <p>Subscribe to our organic boxes and save an extra 10% on every order.</p>
+    </div>
+    <div class="grid grid-3 stagger">
+      <div class="card-hover reveal" style="padding: 1.75rem; text-align: center; border: 1px solid var(--border-color); background: var(--surface-1);">
+        <span class="badge badge-organic" style="margin-bottom: 0.75rem;">Daily Fresh</span>
+        <h3 style="font-size: 1.25rem;">Organic Veg Box</h3>
+        <p class="fs-sm" style="color: var(--text-secondary); margin: 0.5rem 0 1.25rem;">A weekly selection of 6 organic vegetables, perfect for couples.</p>
+        <div style="font-size: 1.4rem; font-weight: 700; color: var(--color-primary); margin-bottom: 1rem;">$19.99 <span style="font-size: 0.85rem; font-weight: 400; color: var(--text-secondary);">/ week</span></div>
+        <a href="signup.html" class="btn btn-primary btn-sm btn-block">Subscribe Now</a>
+      </div>
+      <div class="card-hover reveal" style="padding: 1.75rem; text-align: center; border: 1px solid var(--border-color); background: var(--surface-1);">
+        <span class="badge badge-new" style="margin-bottom: 0.75rem;">Best Seller</span>
+        <h3 style="font-size: 1.25rem;">Farmer's Fruit & Veg Box</h3>
+        <p class="fs-sm" style="color: var(--text-secondary); margin: 0.5rem 0 1.25rem;">A large mix of 10 organic seasonal fruits and veggies for families.</p>
+        <div style="font-size: 1.4rem; font-weight: 700; color: var(--color-primary); margin-bottom: 1rem;">$29.99 <span style="font-size: 0.85rem; font-weight: 400; color: var(--text-secondary);">/ week</span></div>
+        <a href="signup.html" class="btn btn-primary btn-sm btn-block">Subscribe Now</a>
+      </div>
+      <div class="card-hover reveal" style="padding: 1.75rem; text-align: center; border: 1px solid var(--border-color); background: var(--surface-1);">
+        <span class="badge badge-off" style="margin-bottom: 0.75rem;">Wellness</span>
+        <h3 style="font-size: 1.25rem;">Green Smoothie Box</h3>
+        <p class="fs-sm" style="color: var(--text-secondary); margin: 0.5rem 0 1.25rem;">Avocados, organic spinach, celery, bananas, apples, and plant milk.</p>
+        <div style="font-size: 1.4rem; font-weight: 700; color: var(--color-primary); margin-bottom: 1rem;">$24.99 <span style="font-size: 0.85rem; font-weight: 400; color: var(--text-secondary);">/ week</span></div>
+        <a href="signup.html" class="btn btn-primary btn-sm btn-block">Subscribe Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== INTERACTIVE REWARDS CALCULATOR ===================== -->
 <section>
   <div class="container">
-    <div class="grid grid-3 stagger">
-      <div class="feature-card card-hover reveal" style="flex-direction:column;text-align:center;">
-        <div class="icon-circle" style="margin:0 auto;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
-        <h3>Flexible Slots</h3><p>Pick a delivery window that fits your schedule.</p>
+    <div class="section-head reveal">
+      <span class="eyebrow">Loyalty Calculator</span>
+      <h2>FreshlyMarket+ Value Calculator</h2>
+      <p>Estimate your weekly grocery spending to see how much you save with our free program.</p>
+    </div>
+    
+    <div class="calc-card reveal" style="max-width: 650px; margin: 0 auto;">
+      <h3 style="font-size: 1.3rem;">Weekly Grocery Spending</h3>
+      <div class="slider-container">
+        <input type="range" min="30" max="300" value="120" class="range-slider" id="calcSlider">
+        <div style="font-size: 2.2rem; font-weight: 800; color: var(--color-primary); margin-top: 1rem;" id="sliderVal">$120</div>
       </div>
-      <div class="feature-card card-hover reveal" style="flex-direction:column;text-align:center;">
-        <div class="icon-circle" style="margin:0 auto;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
-        <h3>Live Tracking</h3><p>Know exactly where your order is, in real time.</p>
+      
+      <div class="calc-output">
+        <div class="calc-metric">
+          <div class="calc-value" id="valPoints">2,400</div>
+          <div style="font-size: 0.8rem; color: var(--text-secondary); font-weight: 600; text-transform: uppercase;">Points Earned / Year</div>
+        </div>
+        <div class="calc-metric">
+          <div class="calc-value" id="valSavings">$124</div>
+          <div style="font-size: 0.8rem; color: var(--text-secondary); font-weight: 600; text-transform: uppercase;">Annual Cashback Value</div>
+        </div>
       </div>
-      <div class="feature-card card-hover reveal" style="flex-direction:column;text-align:center;">
-        <div class="icon-circle" style="margin:0 auto;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h11v8H3z"/><path d="M14 10h4l3 3v2h-7z"/><circle cx="7" cy="18" r="1.5"/><circle cx="17" cy="18" r="1.5"/></svg></div>
-        <h3>Eco-Friendly Fleet</h3><p>A growing share of deliveries made by electric vehicle.</p>
+      
+      <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 1.5rem; line-height: 1.5;">
+        *Calculated based on 2x points for members and standard 5% reward redemption rates on local artisan brands.
+      </p>
+      
+      <a href="signup.html" class="btn btn-primary btn-lg" style="margin-top: 1.5rem;">Join Free & Earn Rewards</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ZERO-WASTE & SUSTAINABILITY ===================== -->
+<section class="bg-surface" id="sustainability">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Eco-Friendly Operations</span>
+      <h2>Zero-Waste & Sustainability Commitment</h2>
+      <p>We believe nourishing people shouldn't cost the planet. Here is how we are reducing our footprint.</p>
+    </div>
+    <div class="grid grid-3 stagger" style="margin-top:2.5rem;">
+      <div class="feature-card card-hover reveal" style="flex-direction:column; text-align:center; padding:2rem 1.5rem; background:var(--surface-card); border:1px solid var(--border-color); border-radius:var(--radius-md);">
+        <div class="icon-circle" style="margin:0 auto 1.25rem; background:rgba(76,175,80,0.1); color:var(--color-primary);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>100% Recyclable Packaging</h3>
+        <p class="fs-sm" style="color:var(--text-secondary); line-height:1.6; margin:0.5rem 0 0;">We have eliminated single-use plastic boxes from our operations. 90% of our private label brands use biodegradable, recyclable, or compostable wraps.</p>
+      </div>
+      <div class="feature-card card-hover reveal" style="flex-direction:column; text-align:center; padding:2rem 1.5rem; background:var(--surface-card); border:1px solid var(--border-color); border-radius:var(--radius-md);">
+        <div class="icon-circle" style="margin:0 auto 1.25rem; background:rgba(76,175,80,0.1); color:var(--color-primary);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h11v8H3z"/><path d="M14 10h4l3 3v2h-7z"/><circle cx="7" cy="18" r="1.5"/><circle cx="17" cy="18" r="1.5"/></svg></div>
+        <h3>Electric Delivery Fleet</h3>
+        <p class="fs-sm" style="color:var(--text-secondary); line-height:1.6; margin:0.5rem 0 0;">Zero emissions, silent delivery. Over 40% of our city courier runs are executed using fully electric vans, reducing delivery carbon footprint by 35%.</p>
+      </div>
+      <div class="feature-card card-hover reveal" style="flex-direction:column; text-align:center; padding:2rem 1.5rem; background:var(--surface-card); border:1px solid var(--border-color); border-radius:var(--radius-md);">
+        <div class="icon-circle" style="margin:0 auto 1.25rem; background:rgba(76,175,80,0.1); color:var(--color-primary);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+        <h3>Zero Food Waste Guarantee</h3>
+        <p class="fs-sm" style="color:var(--text-secondary); line-height:1.6; margin:0.5rem 0 0;">None of our near-expiration fresh produce goes to landfill. We partner daily with local soup kitchens and regional food banks to feed families in need.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== MEMBERSHIP BENEFITS ===================== -->
-<section class="bg-surface">
+<!-- ===================== MEMBERSHIP LIFESTYLE BENEFITS ===================== -->
+<section>
   <div class="container">
     <div class="split">
       <div class="reveal">
@@ -175,24 +529,42 @@
 </section>
 
 <!-- ===================== FAQ PREVIEW ===================== -->
-<section>
+<section class="bg-surface">
   <div class="container">
-    <div class="section-head reveal"><span class="eyebrow">Quick Answers</span><h2>Frequently Asked Questions</h2></div>
+    <div class="section-head reveal">
+      <span class="eyebrow">Quick Answers</span>
+      <h2>Frequently Asked Questions</h2>
+    </div>
     <div class="accordion-group reveal">
-      <div class="accordion-item"><button class="accordion-trigger">What makes a product "organic" here?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button><div class="accordion-panel"><div class="accordion-panel-inner">Every item tagged Organic is certified by a recognized organic certification body and verified by our sourcing team.</div></div></div>
-      <div class="accordion-item"><button class="accordion-trigger">How does the rewards program work?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button><div class="accordion-panel"><div class="accordion-panel-inner">You earn points on every purchase, redeemable for discounts on future orders directly at checkout.</div></div></div>
+      <div class="accordion-item">
+        <button class="accordion-trigger">What makes a product "organic" here?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="accordion-panel">
+          <div class="accordion-panel-inner">Every item tagged Organic is certified by a recognized organic certification body and verified by our sourcing team.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger">How do weekly subscription boxes work?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="accordion-panel">
+          <div class="accordion-panel-inner">Your custom organic subscription box is billed weekly and delivered automatically during your preferred time window. You can skip, pause or cancel anytime.</div>
+        </div>
+      </div>
     </div>
     <div style="text-align:center;margin-top:1.5rem;"><a href="faq.html" class="btn btn-outline">View All FAQs</a></div>
   </div>
 </section>
 
-<!-- ===================== FINAL CTA ===================== -->
-<section class="bg-surface">
+<!-- ===================== PREMIUM NEWSLETTER & CTA ===================== -->
+<section>
   <div class="container">
-    <div class="cta-banner reveal">
-      <h2>Ready to Eat Better, Effortlessly?</h2>
-      <p>Build your first organic, healthy-living basket today.</p>
-      <a href="fresh-produce.html" class="btn btn-secondary btn-lg">Start Shopping</a>
+    <div class="cta-banner reveal" style="background: linear-gradient(135deg, var(--color-primary), #0c1611); padding: 4rem 2rem;">
+      <h2 style="font-size: 2rem;">Join the Healthy Living Community</h2>
+      <p style="max-width: 600px; margin: 0.5rem auto 2rem; color: rgba(255,255,255,0.9);">
+        Subscribe to our weekly newsletter for chef-curated healthy recipes, organic farming stories, and get $10 off your next order.
+      </p>
+      <form onsubmit="event.preventDefault(); this.reset(); alert('Thank you for subscribing! Check your email for your $10 code.');" style="display: flex; gap: 0.5rem; max-width: 500px; margin: 0 auto; flex-wrap: wrap; justify-content: center;">
+        <input type="email" class="form-control" required placeholder="Enter your email" style="flex: 1; min-width: 250px; background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25); color: #fff;">
+        <button type="submit" class="btn btn-secondary">Subscribe</button>
+      </form>
     </div>
   </div>
 </section>
@@ -204,12 +576,96 @@
 <script src="assets/js/products-data.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function(){
-  if (window.FM_PRODUCTS && window.FM_renderProductCard){
-    const organic = window.FM_PRODUCTS.filter(p => p.badge === "organic").concat(window.FM_PRODUCTS.slice(0,4));
-    document.getElementById("organicTrack").innerHTML = organic.map(p => window.FM_renderProductCard(p,true)).join("");
-    document.getElementById("essentialsTrack").innerHTML = window.FM_PRODUCTS.slice(6,14).map(p => window.FM_renderProductCard(p,true)).join("");
+  // Interactive Recipe Planner
+  const recipes = {
+    vegan: {
+      title: "Green Garden Stir-Fry Kit",
+      desc: "A vibrant medley of crisp local organic broccoli, sweet carrots, and sugar snap peas tossed in our artisanal garlic-ginger sesame glaze. Perfect for a clean plant-based dinner.",
+      ingredients: ["Organic Broccoli Crown", "Local Carrot Bunch", "Artisanal Sesame Glaze", "Green Scallions", "Brown Jasmine Rice", "Organic Firm Tofu"],
+      oldPrice: "$18.50",
+      price: "$14.99",
+      img: "assets/images/dept-fruits.png"
+    },
+    keto: {
+      title: "Keto Energy Fuel Kit",
+      desc: "High-fat, low-carb fuel featuring grass-fed dairy butter, pasture-raised eggs, organic avocados, and premium smoked bacon. Energize your day with zero added sugars.",
+      ingredients: ["Organic Hass Avocados", "Grass-Fed Dairy Butter", "Pasture-Raised Eggs", "Thick-Cut Smoked Bacon", "Fresh Baby Spinach", "Sharp Aged Cheddar"],
+      oldPrice: "$24.00",
+      price: "$19.99",
+      img: "assets/images/dept-dairy.png"
+    },
+    family: {
+      title: "Sunday Roast Family Bundle",
+      desc: "Everything you need for a spectacular Sunday roast: a premium cut, local baking potatoes, organic root carrots, rosemary sprigs, and thick rich gravy base.",
+      ingredients: ["Premium Searing Joint", "Local Baking Potatoes", "Fresh Rosemary & Thyme", "Organic Baby Carrots", "Artisanal Gravy Stock", "Fresh Bakery Dinner Rolls"],
+      oldPrice: "$45.00",
+      price: "$37.50",
+      img: "assets/images/dept-bakery.png"
+    },
+    quick: {
+      title: "15-Min Pesto Pasta Kit",
+      desc: "A fast, delicious Mediterranean escape. Organic durump pasta paired with fresh basil pesto sauce, cherry sweet tomatoes, and premium shaved parmesan cheese.",
+      ingredients: ["Organic Durum Pasta", "Fresh Sweet Basil Pesto", "Organic Cherry Tomatoes", "Extra Virgin Olive Oil", "Shaved Parmesan Cheese", "Toasted Pine Nuts"],
+      oldPrice: "$15.99",
+      price: "$11.99",
+      img: "assets/images/dept-grocery.png"
+    }
+  };
+
+  const tabs = document.querySelectorAll(".recipe-tab");
+  tabs.forEach(tab => {
+    tab.addEventListener("click", function(){
+      tabs.forEach(t => t.classList.remove("active"));
+      this.classList.add("active");
+      
+      const r = recipes[this.dataset.recipe];
+      if (r) {
+        document.getElementById("recipeTitle").textContent = r.title;
+        document.getElementById("recipeDesc").textContent = r.desc;
+        document.getElementById("recipeOldPrice").textContent = r.oldPrice;
+        document.getElementById("recipePrice").textContent = r.price;
+        document.getElementById("recipeImg").src = r.img;
+        document.getElementById("recipeImg").alt = r.title;
+        
+        const ingList = document.getElementById("recipeIngredients");
+        ingList.innerHTML = r.ingredients.map(ing => `<li>${ing}</li>`).join("");
+      }
+    });
+  });
+
+  // Interactive Rewards Calculator
+  const slider = document.getElementById("calcSlider");
+  const sliderVal = document.getElementById("sliderVal");
+  const valPoints = document.getElementById("valPoints");
+  const valSavings = document.getElementById("valSavings");
+
+  function updateCalculator() {
+    const spend = parseInt(slider.value, 10);
+    sliderVal.textContent = `$${spend}`;
+    
+    // Metrics
+    const pointsYear = spend * 2 * 52;
+    const savingsYear = Math.floor(pointsYear * 0.025 + (spend > 100 ? 59 : 0)); // Extra benefits if spend > 100
+    
+    valPoints.textContent = pointsYear.toLocaleString();
+    valSavings.textContent = `$${savingsYear}`;
+  }
+
+  if (slider) {
+    slider.addEventListener("input", updateCalculator);
+    updateCalculator(); // run once on load
   }
 });
+
+function addRecipeBundleToCart() {
+  const badge = document.getElementById("cartCount");
+  if (badge){
+    badge.textContent = (parseInt(badge.textContent || "0", 10) + 6); // Add 6 items in the bundle
+    badge.style.transform = "scale(1.4)";
+    setTimeout(() => { badge.style.transform = "scale(1)"; }, 200);
+    alert("Added all 6 recipe kit ingredients to your cart!");
+  }
+}
 </script>
 </body>
 </html>

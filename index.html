@@ -20,36 +20,23 @@
 <header id="main-header"></header>
 
 <!-- ===================== HERO ===================== -->
-<section class="hero-banner">
+<section class="hero-banner has-bg" style="background-image: url('assets/images/hero-main.png');">
   <div class="container">
-    <div class="hero-grid">
-      <div class="reveal">
-        <span class="eyebrow">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2l1.5 5M18 2l-1.5 5M3.5 7h17l-1.6 9.4a2 2 0 0 1-2 1.6H7.1a2 2 0 0 1-2-1.6L3.5 7z"/></svg>
-          Weekly Deals Now Live
-        </span>
-        <h1>Everything You Need,<br><span class="text-primary-c">Fresh Every Day.</span></h1>
-        <p class="hero-sub">Farm-fresh produce, pantry staples, and household essentials — handpicked daily and delivered to your door, or ready for pickup in an hour.</p>
-        <div class="hero-cta">
-          <a href="grocery.html" class="btn btn-primary btn-lg">Shop Now</a>
-          <a href="offers.html" class="btn btn-outline btn-lg">View Offers</a>
-        </div>
-        <div class="hero-stats">
-          <div><span class="num">12,000+</span><span class="lbl">Products</span></div>
-          <div><span class="num">98%</span><span class="lbl">On-Time Delivery</span></div>
-          <div><span class="num">4.8★</span><span class="lbl">Customer Rating</span></div>
-        </div>
+    <div class="hero-content reveal text-center" style="max-width: 800px; margin: 0 auto;">
+      <span class="eyebrow">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2l1.5 5M18 2l-1.5 5M3.5 7h17l-1.6 9.4a2 2 0 0 1-2 1.6H7.1a2 2 0 0 1-2-1.6L3.5 7z"/></svg>
+        Weekly Deals Now Live
+      </span>
+      <h1>Everything You Need,<br><span class="text-primary-c">Fresh Every Day.</span></h1>
+      <p class="hero-sub">Farm-fresh produce, pantry staples, and household essentials — handpicked daily and delivered to your door, or ready for pickup in an hour.</p>
+      <div class="hero-cta justify-content-center">
+        <a href="grocery.html" class="btn btn-primary btn-lg">Shop Now</a>
+        <a href="offers.html" class="btn btn-outline btn-lg" style="background: rgba(255,255,255,0.15); color: #fff; border-color: rgba(255,255,255,0.3);">View Offers</a>
       </div>
-      <div class="hero-img reveal">
-        <img src="assets/images/hero-main.png" alt="Fresh fruits and vegetables basket">
-        <div class="floating-card fc-1">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E7D32" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-          100% Organic Certified
-        </div>
-        <div class="floating-card fc-2">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F9A825" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-          30-Min Delivery
-        </div>
+      <div class="hero-stats justify-content-center" style="margin-top: 2.5rem;">
+        <div><span class="num" style="color: var(--color-primary-bright);">12,000+</span><span class="lbl" style="color: rgba(255,255,255,0.85);">Products</span></div>
+        <div><span class="num" style="color: var(--color-primary-bright);">98%</span><span class="lbl" style="color: rgba(255,255,255,0.85);">On-Time Delivery</span></div>
+        <div><span class="num" style="color: var(--color-primary-bright);">4.8★</span><span class="lbl" style="color: rgba(255,255,255,0.85);">Customer Rating</span></div>
       </div>
     </div>
   </div>
@@ -245,18 +232,36 @@
       <h2>Popular Brands</h2>
     </div>
     <div class="grid grid-6 stagger">
-      <div class="brand-card card-hover reveal">NutriFarm</div>
-      <div class="brand-card card-hover reveal">GreenValley</div>
-      <div class="brand-card card-hover reveal">DairyPure</div>
-      <div class="brand-card card-hover reveal">OatNest</div>
-      <div class="brand-card card-hover reveal">FreshHarvest</div>
-      <div class="brand-card card-hover reveal">PureBake</div>
+      <div class="brand-card card-hover reveal">
+        <img src="assets/images/brand-nutrifarm.png" alt="NutriFarm" class="brand-logo">
+        <span>NutriFarm</span>
+      </div>
+      <div class="brand-card card-hover reveal">
+        <img src="assets/images/brand-greenvalley.png" alt="GreenValley" class="brand-logo">
+        <span>GreenValley</span>
+      </div>
+      <div class="brand-card card-hover reveal">
+        <img src="assets/images/brand-dairypure.png" alt="DairyPure" class="brand-logo">
+        <span>DairyPure</span>
+      </div>
+      <div class="brand-card card-hover reveal">
+        <img src="assets/images/brand-oatnest.png" alt="OatNest" class="brand-logo">
+        <span>OatNest</span>
+      </div>
+      <div class="brand-card card-hover reveal">
+        <img src="assets/images/brand-freshharvest.png" alt="FreshHarvest" class="brand-logo">
+        <span>FreshHarvest</span>
+      </div>
+      <div class="brand-card card-hover reveal">
+        <img src="assets/images/brand-purebake.png" alt="PureBake" class="brand-logo">
+        <span>PureBake</span>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ===================== FEATURED PRODUCTS ===================== -->
-<section>
+<!-- <section>
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">Best Sellers</span>
@@ -266,7 +271,7 @@
       <div class="carousel-track" id="featuredTrack"></div>
     </div>
   </div>
-</section>
+</section> -->
 
 <!-- ===================== TESTIMONIALS ===================== -->
 <section class="bg-surface">
@@ -279,17 +284,17 @@
       <div class="testimonial-card card-hover reveal">
         <div class="stars">★★★★★</div>
         <p>"Groceries arrive fresher than my local store, and the delivery slot always shows up on time."</p>
-        <div class="author"><div class="avatar">A</div><div><div class="name">Amelia R.</div><div class="role">Verified Customer</div></div></div>
+        <div class="author"><div class="avatar"><img src="assets/images/testimonial-amelia.png" alt="Amelia R."></div><div><div class="name">Amelia R.</div><div class="role">Verified Customer</div></div></div>
       </div>
       <div class="testimonial-card card-hover reveal">
         <div class="stars">★★★★★</div>
         <p>"The weekly shopping list feature saves me so much time — I just reorder my essentials in one tap."</p>
-        <div class="author"><div class="avatar">D</div><div><div class="name">David K.</div><div class="role">Verified Customer</div></div></div>
+        <div class="author"><div class="avatar"><img src="assets/images/testimonial-david.png" alt="David K."></div><div><div class="name">David K.</div><div class="role">Verified Customer</div></div></div>
       </div>
       <div class="testimonial-card card-hover reveal">
         <div class="stars">★★★★★</div>
         <p>"Click & Collect is a lifesaver on busy weeks. In and out of the store in under five minutes."</p>
-        <div class="author"><div class="avatar">P</div><div><div class="name">Priya N.</div><div class="role">Verified Customer</div></div></div>
+        <div class="author"><div class="avatar"><img src="assets/images/testimonial-priya.png" alt="Priya N."></div><div><div class="name">Priya N.</div><div class="role">Verified Customer</div></div></div>
       </div>
     </div>
   </div>

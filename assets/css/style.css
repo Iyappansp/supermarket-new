@@ -19,6 +19,7 @@
   --color-success: #43A047;
   --color-danger: #E53935;
   --color-border: #E5E9ED;
+  --color-primary-bright: #4CAF50;
   --color-text: #1F2937;
   --color-text-muted: #6B7280;
 
@@ -42,6 +43,7 @@
   --space-lg: 2.5rem;
   --space-xl: 4rem;
   --space-2xl: 6rem;
+  --space-3xl: 8.5rem;
 
   /* ---- Radius & Shadow ---- */
   --radius-sm: 8px;
@@ -76,10 +78,12 @@
   --header-bg: rgba(21,25,30,0.92);
   --color-bg: #15191E;
   --color-primary-light: #1C3320;
+  --color-primary-bright: #81C784;
   --color-secondary-light: #3A2E14;
   --shadow-sm: 0 2px 10px rgba(0,0,0,0.35);
   --shadow-md: 0 8px 26px rgba(0,0,0,0.4);
   --shadow-lg: 0 18px 44px rgba(0,0,0,0.5);
+  --space-3xl: 8.5rem;
 }
 
 /* =========================================================

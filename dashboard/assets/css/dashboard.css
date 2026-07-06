@@ -53,7 +53,7 @@
 
 .sidebar-collapse-btn{
   width:100%; display:flex; align-items:center; justify-content:center; gap:.5rem;
-  padding:.6rem; border-radius: var(--radius-sm); background: var(--surface-2); border:0;
+  padding:.6rem; border-radius: var(--radius-pill); background: var(--surface-2); border:0;
   color: var(--text-secondary); margin-top:.5rem; font-size:.82rem;
 }
 .sidebar-collapse-btn svg{ width:16px;height:16px; transition: transform var(--transition-base); }
