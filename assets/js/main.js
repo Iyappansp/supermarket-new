@@ -139,7 +139,7 @@
         <a href="${ROOT}login.html" class="btn btn-primary btn-block">Login</a>
       </div>
       <div class="drawer-utility" style="margin-top:2rem; padding-top:1.5rem; border-top:1px solid var(--color-border); display:flex; justify-content:space-between; align-items:center; gap:1rem;">
-        <span style="font-size:0.88rem; font-weight:600; color:var(--text-secondary);">Settings</span>
+        <span style="font-size:0.88rem; font-weight:600; color:var(--text-secondary);">Options:</span>
         <div style="display:flex; gap:0.5rem;">
           <button type="button" class="rtl-toggle" aria-label="Toggle right to left layout" style="width:44px; height:44px; border-radius:50%; background:var(--surface-2); border:0; color:var(--text-primary); display:flex; align-items:center; justify-content:center; cursor:pointer; font-family:var(--font-heading); font-weight:700; font-size:0.8rem;">RTL</button>
           <button type="button" class="theme-toggle" aria-label="Toggle dark mode" style="width:44px; height:44px; border-radius:50%; background:var(--surface-2); border:0; color:var(--text-primary); display:flex; align-items:center; justify-content:center; cursor:pointer;">

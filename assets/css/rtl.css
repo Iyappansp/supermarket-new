@@ -66,3 +66,13 @@
 [dir="rtl"] .login-btn svg { transform: scaleX(-1); }
 [dir="rtl"] .dash-nav a[data-page="logout"] svg { transform: scaleX(-1); }
 
+/* Custom auth alignment fixes */
+[dir="rtl"] .auth-card .auth-sub {
+  direction: ltr;
+}
+[dir="rtl"] .input-icon-wrap.password-input-wrap .form-control {
+  padding-right: 2.8rem;
+  padding-left: 2.8rem;
+}
+
+

@@ -77,3 +77,21 @@
   color: rgba(255, 255, 255, 0.55) !important;
   opacity: 1 !important;
 }
+
+[data-theme="dark"] .mobile-drawer-close {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
+[data-theme="dark"] .product-card .add-cart-btn {
+  background: var(--color-primary) !important;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .product-card .add-cart-btn svg {
+  stroke: #ffffff !important;
+}
+
+[data-theme="dark"] .product-card .add-cart-btn:hover {
+  background: var(--color-primary-dark) !important;
+}

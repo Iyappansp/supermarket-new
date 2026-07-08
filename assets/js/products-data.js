@@ -62,7 +62,7 @@
         </div>
         <button class="add-cart-btn" onclick="window.FM_addToCart && window.FM_addToCart(${p.id})">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.5 3h2l2.7 12.4a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6L21.5 8H6"/></svg>
-          Add to Cart
+          <span>Add to Cart</span>
         </button>
       </div>
     </div>`;

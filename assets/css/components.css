@@ -750,11 +750,18 @@
 
 .newsletter-band form {
   display: flex;
+  align-items: center;
   gap: .6rem;
   background: rgba(255, 255, 255, .12);
   padding: .35rem .35rem .35rem 1.1rem;
   border-radius: var(--radius-pill);
   min-width: 340px;
+}
+
+.newsletter-band form .btn {
+  padding: 0.6rem 1.5rem;
+  font-size: 0.9rem;
+  line-height: 1.2;
 }
 
 .newsletter-band input {
@@ -763,6 +770,8 @@
   border: 0;
   outline: none;
   color: #fff;
+  padding: 0.5rem 0;
+  line-height: 1.2;
 }
 
 .newsletter-band input::placeholder {
@@ -774,10 +783,31 @@
   opacity: 1;
 }
 
-@media (max-width:768px) {
+@media (max-width: 1023px) {
   .newsletter-band form {
+    flex-direction: column;
+    align-items: stretch;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
     min-width: auto;
     width: 100%;
+    gap: 0.8rem;
+  }
+  .newsletter-band input {
+    background: rgba(255, 255, 255, 0.12);
+    padding: 0.8rem 1.25rem;
+    border-radius: var(--radius-pill);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    width: 100%;
+  }
+  .newsletter-band form .btn {
+    width: 100%;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--radius-pill);
+    text-align: center;
+    justify-content: center;
   }
 }
 
@@ -1550,6 +1580,10 @@ textarea.form-control {
 }
 
 .password-input-wrap .password-toggle-btn svg {
+  position: static;
+  transform: none;
+  inset-inline-start: auto;
+  top: auto;
   width: 18px;
   height: 18px;
   pointer-events: none;

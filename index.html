@@ -1,225 +1,290 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FreshlyMarket — Everything You Need, Fresh Every Day</title>
-<meta name="description" content="Shop fresh fruits, vegetables, dairy, bakery, groceries and more online. Same-day delivery and click & collect from your neighborhood supermarket.">
-<link rel="icon" type="image/png" href="assets/images/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/style.css">
-<link rel="stylesheet" href="assets/css/header-footer.css">
-<link rel="stylesheet" href="assets/css/components.css">
-<link rel="stylesheet" href="assets/css/responsive.css">
-<link rel="stylesheet" href="assets/css/dark-mode.css">
-<link rel="stylesheet" href="assets/css/rtl.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FreshlyMarket — Everything You Need, Fresh Every Day</title>
+  <meta name="description"
+    content="Shop fresh fruits, vegetables, dairy, bakery, groceries and more online. Same-day delivery and click & collect from your neighborhood supermarket.">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/header-footer.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
 </head>
+
 <body>
 
-<header id="main-header"></header>
+  <header id="main-header"></header>
 
-<!-- ===================== HERO ===================== -->
-<section class="hero-banner has-bg" style="background-image: url('assets/images/hero-main.png');">
-  <div class="container">
-    <div class="hero-content reveal text-center" style="max-width: 800px; margin: 0 auto;">
-      <span class="eyebrow">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2l1.5 5M18 2l-1.5 5M3.5 7h17l-1.6 9.4a2 2 0 0 1-2 1.6H7.1a2 2 0 0 1-2-1.6L3.5 7z"/></svg>
-        Weekly Deals Now Live
-      </span>
-      <h1>Everything You Need,<br><span class="text-primary-c">Fresh Every Day.</span></h1>
-      <p class="hero-sub">Farm-fresh produce, pantry staples, and household essentials — handpicked daily and delivered to your door, or ready for pickup in an hour.</p>
-      <div class="hero-cta justify-content-center">
-        <a href="grocery.html" class="btn btn-primary btn-lg">Shop Now</a>
-        <a href="offers.html" class="btn btn-outline btn-lg" style="background: rgba(255,255,255,0.15); color: #fff; border-color: rgba(255,255,255,0.3);">View Offers</a>
-      </div>
-      <div class="hero-stats justify-content-center" style="margin-top: 2.5rem;">
-        <div><span class="num" style="color: var(--color-primary-bright);">12,000+</span><span class="lbl" style="color: rgba(255,255,255,0.85);">Products</span></div>
-        <div><span class="num" style="color: var(--color-primary-bright);">98%</span><span class="lbl" style="color: rgba(255,255,255,0.85);">On-Time Delivery</span></div>
-        <div><span class="num" style="color: var(--color-primary-bright);">4.8★</span><span class="lbl" style="color: rgba(255,255,255,0.85);">Customer Rating</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== SHOP BY DEPARTMENT ===================== -->
-<section>
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Browse</span>
-      <h2>Shop by Department</h2>
-      <p>Everything organized so you find what you need in seconds.</p>
-    </div>
-    <div class="grid grid-4 stagger">
-      <a href="fresh-produce.html" class="dept-card card-hover reveal">
-        <div class="dept-icon"><img src="assets/images/dept-fruits.png" alt="Fruits and Vegetables"></div>
-        <h3>Fruits & Vegetables</h3>
-        <span>120+ items</span>
-      </a>
-      <a href="grocery.html" class="dept-card card-hover reveal">
-        <div class="dept-icon"><img src="assets/images/dept-grocery.png" alt="Grocery"></div>
-        <h3>Grocery</h3>
-        <span>340+ items</span>
-      </a>
-      <a href="grocery.html#dairy" class="dept-card card-hover reveal">
-        <div class="dept-icon"><img src="assets/images/dept-dairy.png" alt="Dairy"></div>
-        <h3>Dairy</h3>
-        <span>85+ items</span>
-      </a>
-      <a href="bakery.html" class="dept-card card-hover reveal">
-        <div class="dept-icon"><img src="assets/images/dept-bakery.png" alt="Bakery"></div>
-        <h3>Bakery</h3>
-        <span>60+ items</span>
-      </a>
-      <a href="grocery.html#frozen" class="dept-card card-hover reveal">
-        <div class="dept-icon"><img src="assets/images/dept-frozen.png" alt="Frozen Foods"></div>
-        <h3>Frozen Foods</h3>
-        <span>95+ items</span>
-      </a>
-      <a href="grocery.html#snacks" class="dept-card card-hover reveal">
-        <div class="dept-icon"><img src="assets/images/dept-snacks.png" alt="Snacks"></div>
-        <h3>Snacks</h3>
-        <span>150+ items</span>
-      </a>
-      <a href="household.html" class="dept-card card-hover reveal">
-        <div class="dept-icon"><img src="assets/images/dept-household.png" alt="Household"></div>
-        <h3>Household</h3>
-        <span>110+ items</span>
-      </a>
-      <a href="household.html#personal-care" class="dept-card card-hover reveal">
-        <div class="dept-icon"><img src="assets/images/dept-personal.png" alt="Personal Care"></div>
-        <h3>Personal Care</h3>
-        <span>70+ items</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== WEEKLY OFFERS ===================== -->
-<section class="bg-surface">
-  <div class="container">
-    <div class="row-between reveal" style="margin-bottom:1.5rem;">
-      <div class="section-head" style="text-align:start;margin:0;">
-        <span class="eyebrow">Limited Time</span>
-        <h2>Weekly Offers</h2>
-      </div>
-      <div class="countdown" data-countdown="68">
-        <div class="cd-box"><span class="cd-num cd-d">00</span><span class="cd-label">Days</span></div>
-        <div class="cd-box"><span class="cd-num cd-h">00</span><span class="cd-label">Hrs</span></div>
-        <div class="cd-box"><span class="cd-num cd-m">00</span><span class="cd-label">Min</span></div>
-        <div class="cd-box"><span class="cd-num cd-s">00</span><span class="cd-label">Sec</span></div>
-      </div>
-    </div>
-    <div class="grid grid-3 stagger">
-      <div class="offer-card card-hover reveal">
-        <span class="badge badge-sale offer-tag">Save 25%</span>
-        <h3>Fresh Fruit Bundle</h3>
-        <p class="fs-sm">Apples, bananas, oranges & seasonal fruit, curated weekly.</p>
-        <div class="row-between">
-          <span class="offer-discount">25% <span class="fs-sm fw-semibold">OFF</span></span>
-          <a href="offers.html" class="btn btn-primary btn-sm">Shop</a>
+  <!-- ===================== HERO ===================== -->
+  <section class="hero-banner has-bg" style="background-image: url('assets/images/hero-main.png');">
+    <div class="container">
+      <div class="hero-content reveal text-center" style="max-width: 800px; margin: 0 auto;">
+        <span class="eyebrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 2l1.5 5M18 2l-1.5 5M3.5 7h17l-1.6 9.4a2 2 0 0 1-2 1.6H7.1a2 2 0 0 1-2-1.6L3.5 7z" />
+          </svg>
+          Weekly Deals Now Live
+        </span>
+        <h1>Everything You Need,<br><span class="text-primary-c">Fresh Every Day.</span></h1>
+        <p class="hero-sub">Farm-fresh produce, pantry staples, and household essentials — handpicked daily and
+          delivered to your door, or ready for pickup in an hour.</p>
+        <div class="hero-cta justify-content-center">
+          <a href="grocery.html" class="btn btn-primary btn-lg">Shop Now</a>
+          <a href="offers.html" class="btn btn-outline btn-lg"
+            style="background: rgba(255,255,255,0.15); color: #fff; border-color: rgba(255,255,255,0.3);">View
+            Offers</a>
         </div>
-      </div>
-      <div class="offer-card card-hover reveal">
-        <span class="badge badge-off offer-tag">Bundle Deal</span>
-        <h3>Dairy Essentials Pack</h3>
-        <p class="fs-sm">Milk, cheese, yogurt & butter — everything for the fridge.</p>
-        <div class="row-between">
-          <span class="offer-discount">$12 <span class="fs-sm fw-semibold">OFF</span></span>
-          <a href="offers.html" class="btn btn-primary btn-sm">Shop</a>
-        </div>
-      </div>
-      <div class="offer-card card-hover reveal">
-        <span class="badge badge-new offer-tag">New Arrival</span>
-        <h3>Organic Pantry Box</h3>
-        <p class="fs-sm">Certified organic grains, oils as well as the pulses bundle.</p>
-        <div class="row-between">
-          <span class="offer-discount">15% <span class="fs-sm fw-semibold">OFF</span></span>
-          <a href="offers.html" class="btn btn-primary btn-sm">Shop</a>
+        <div class="hero-stats justify-content-center" style="margin-top: 2.5rem;">
+          <div><span class="num" style="color: var(--color-primary-bright);">12,000+</span><span class="lbl"
+              style="color: rgba(255,255,255,0.85);">Products</span></div>
+          <div><span class="num" style="color: var(--color-primary-bright);">98%</span><span class="lbl"
+              style="color: rgba(255,255,255,0.85);">On-Time Delivery</span></div>
+          <div><span class="num" style="color: var(--color-primary-bright);">4.8★</span><span class="lbl"
+              style="color: rgba(255,255,255,0.85);">Customer Rating</span></div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ===================== FRESH ARRIVALS ===================== -->
-<section>
-  <div class="container">
-    <div class="reveal" style="margin-bottom:2rem; text-align:center;">
-      <div class="section-head" style="text-align:center; margin:0 auto;">
-        <span class="eyebrow">Just In</span>
-        <h2>Fresh Arrivals</h2>
+  <!-- ===================== SHOP BY DEPARTMENT ===================== -->
+  <section>
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Browse</span>
+        <h2>Shop by Department</h2>
+        <p>Everything organized so you find what you need in seconds.</p>
+      </div>
+      <div class="grid grid-4 stagger">
+        <a href="fresh-produce.html" class="dept-card card-hover reveal">
+          <div class="dept-icon"><img src="assets/images/dept-fruits.png" alt="Fruits and Vegetables"></div>
+          <h3>Fruits & Vegetables</h3>
+          <span>120+ items</span>
+        </a>
+        <a href="grocery.html" class="dept-card card-hover reveal">
+          <div class="dept-icon"><img src="assets/images/dept-grocery.png" alt="Grocery"></div>
+          <h3>Grocery</h3>
+          <span>340+ items</span>
+        </a>
+        <a href="grocery.html#dairy" class="dept-card card-hover reveal">
+          <div class="dept-icon"><img src="assets/images/dept-dairy.png" alt="Dairy"></div>
+          <h3>Dairy</h3>
+          <span>85+ items</span>
+        </a>
+        <a href="bakery.html" class="dept-card card-hover reveal">
+          <div class="dept-icon"><img src="assets/images/dept-bakery.png" alt="Bakery"></div>
+          <h3>Bakery</h3>
+          <span>60+ items</span>
+        </a>
+        <a href="grocery.html#frozen" class="dept-card card-hover reveal">
+          <div class="dept-icon"><img src="assets/images/dept-frozen.png" alt="Frozen Foods"></div>
+          <h3>Frozen Foods</h3>
+          <span>95+ items</span>
+        </a>
+        <a href="grocery.html#snacks" class="dept-card card-hover reveal">
+          <div class="dept-icon"><img src="assets/images/dept-snacks.png" alt="Snacks"></div>
+          <h3>Snacks</h3>
+          <span>150+ items</span>
+        </a>
+        <a href="household.html" class="dept-card card-hover reveal">
+          <div class="dept-icon"><img src="assets/images/dept-household.png" alt="Household"></div>
+          <h3>Household</h3>
+          <span>110+ items</span>
+        </a>
+        <a href="household.html#personal-care" class="dept-card card-hover reveal">
+          <div class="dept-icon"><img src="assets/images/dept-personal.png" alt="Personal Care"></div>
+          <h3>Personal Care</h3>
+          <span>70+ items</span>
+        </a>
       </div>
     </div>
-    <div class="grid grid-3 reveal" id="freshArrivalsTrack">
-      <!-- product cards injected by JS for reuse -->
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ===================== WHY SHOP WITH US ===================== -->
-<section class="bg-surface">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Our Promise</span>
-      <h2>Why Shop With Us</h2>
-    </div>
-    <div class="grid grid-3 stagger">
-      <div class="feature-card card-hover reveal">
-        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2l1.5 5M18 2l-1.5 5M3.5 7h17l-1.6 9.4a2 2 0 0 1-2 1.6H7.1a2 2 0 0 1-2-1.6L3.5 7z"/></svg></div>
-        <div><h3>Fresh Products</h3><p>Sourced daily from trusted local farms and suppliers.</p></div>
+  <!-- ===================== WEEKLY OFFERS ===================== -->
+  <section class="bg-surface">
+    <div class="container">
+      <div class="row-between reveal" style="margin-bottom:1.5rem;">
+        <div class="section-head" style="text-align:start;margin:0;">
+          <span class="eyebrow">Limited Time</span>
+          <h2>Weekly Offers</h2>
+        </div>
+        <div class="countdown" data-countdown="68">
+          <div class="cd-box"><span class="cd-num cd-d">00</span><span class="cd-label">Days</span></div>
+          <div class="cd-box"><span class="cd-num cd-h">00</span><span class="cd-label">Hrs</span></div>
+          <div class="cd-box"><span class="cd-num cd-m">00</span><span class="cd-label">Min</span></div>
+          <div class="cd-box"><span class="cd-num cd-s">00</span><span class="cd-label">Sec</span></div>
+        </div>
       </div>
-      <div class="feature-card card-hover reveal">
-        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h11v8H3z"/><path d="M14 10h4l3 3v2h-7z"/><circle cx="7" cy="18" r="1.5"/><circle cx="17" cy="18" r="1.5"/></svg></div>
-        <div><h3>Same-Day Delivery</h3><p>Order before 2pm and get it delivered evening.</p></div>
-      </div>
-      <div class="feature-card card-hover reveal">
-        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
-        <div><h3>Quality Guaranteed</h3><p>Not happy? We'll replace or refund, no questions asked.</p></div>
-      </div>
-      <div class="feature-card card-hover reveal">
-        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l2-2 4 4 10-10 2 2-12 12z"/></svg></div>
-        <div><h3>Easy Returns</h3><p>Hassle-free returns within 24 hours of delivery.</p></div>
-      </div>
-      <div class="feature-card card-hover reveal">
-        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12h6M12 9v6"/></svg></div>
-        <div><h3>Affordable Prices</h3><p>Everyday low prices with extra weekly savings.</p></div>
-      </div>
-      <div class="feature-card card-hover reveal">
-        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
-        <div><h3>Secure Checkout</h3><p>Your payments and data are always protected.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== HOME DELIVERY ===================== -->
-<section>
-  <div class="container">
-    <div class="split">
-      <div class="reveal">
-        <span class="eyebrow">Delivery</span>
-        <h2>Fast, Reliable Home Delivery</h2>
-        <p>We deliver across your city in time slots that fit your schedule, with live tracking from packing to doorstep.Enjoy convenient doorstep delivery with flexible time slots designed around your schedule. Our dedicated logistics network ensures every order is carefully packed, dispatched promptly, and delivered in perfect condition. Track your groceries in real time from packing to your doorstep, receive instant delivery updates, and experience a seamless shopping journey every time.</p>
-        <div class="grid grid-2" style="margin-top:1.5rem;gap:1rem;">
-          <div class="feature-card" style="padding:1rem;">
-            <div class="icon-circle" style="width:46px;height:46px;"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
-            <div><h3 style="font-size:.95rem;">30–90 Min Slots</h3></div>
-          </div>
-          <div class="feature-card" style="padding:1rem;">
-            <div class="icon-circle" style="width:46px;height:46px;"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
-            <div><h3 style="font-size:.95rem;">Live Order Tracking</h3></div>
+      <div class="grid grid-3 stagger">
+        <div class="offer-card card-hover reveal">
+          <span class="badge badge-sale offer-tag">Save 25%</span>
+          <h3>Fresh Fruit Bundle</h3>
+          <p class="fs-sm">Apples, bananas, oranges & seasonal fruit, curated weekly.</p>
+          <div class="row-between">
+            <span class="offer-discount">25% <span class="fs-sm fw-semibold">OFF</span></span>
+            <a href="offers.html" class="btn btn-primary btn-sm">Shop</a>
           </div>
         </div>
-        <a href="delivery-information.html" class="btn btn-primary" style="margin-top:1.5rem;">Delivery Information</a>
+        <div class="offer-card card-hover reveal">
+          <span class="badge badge-off offer-tag">Bundle Deal</span>
+          <h3>Dairy Essentials Pack</h3>
+          <p class="fs-sm">Milk, cheese, yogurt & butter — everything for the fridge.</p>
+          <div class="row-between">
+            <span class="offer-discount">$12 <span class="fs-sm fw-semibold">OFF</span></span>
+            <a href="offers.html" class="btn btn-primary btn-sm">Shop</a>
+          </div>
+        </div>
+        <div class="offer-card card-hover reveal">
+          <span class="badge badge-new offer-tag">New Arrival</span>
+          <h3>Organic Pantry Box</h3>
+          <p class="fs-sm">Certified organic grains, oils as well as the pulses bundle.</p>
+          <div class="row-between">
+            <span class="offer-discount">15% <span class="fs-sm fw-semibold">OFF</span></span>
+            <a href="offers.html" class="btn btn-primary btn-sm">Shop</a>
+          </div>
+        </div>
       </div>
-      <div class="reveal" style="text-align: center;"><img src="assets/images/hero-secondary.png" alt="Home delivery illustration" style="border-radius:var(--radius-lg); max-width: 85%; height: auto; margin: 0 auto; display: block;"></div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ===================== POPULAR BRANDS ===================== -->
-<!-- <section class="bg-surface">
+  <!-- ===================== FRESH ARRIVALS ===================== -->
+  <section>
+    <div class="container">
+      <div class="reveal" style="margin-bottom:2rem; text-align:center;">
+        <div class="section-head" style="text-align:center; margin:0 auto;">
+          <span class="eyebrow">Just In</span>
+          <h2>Fresh Arrivals</h2>
+        </div>
+      </div>
+      <div class="grid grid-3 reveal" id="freshArrivalsTrack">
+        <!-- product cards injected by JS for reuse -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WHY SHOP WITH US ===================== -->
+  <section class="bg-surface">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Our Promise</span>
+        <h2>Why Shop With Us</h2>
+      </div>
+      <div class="grid grid-3 stagger">
+        <div class="feature-card card-hover reveal">
+          <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 2l1.5 5M18 2l-1.5 5M3.5 7h17l-1.6 9.4a2 2 0 0 1-2 1.6H7.1a2 2 0 0 1-2-1.6L3.5 7z" />
+            </svg></div>
+          <div>
+            <h3>Fresh Products</h3>
+            <p>Sourced daily from trusted local farms and suppliers.</p>
+          </div>
+        </div>
+        <div class="feature-card card-hover reveal">
+          <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 7h11v8H3z" />
+              <path d="M14 10h4l3 3v2h-7z" />
+              <circle cx="7" cy="18" r="1.5" />
+              <circle cx="17" cy="18" r="1.5" />
+            </svg></div>
+          <div>
+            <h3>Same-Day Delivery</h3>
+            <p>Order before 2pm and get it delivered evening.</p>
+          </div>
+        </div>
+        <div class="feature-card card-hover reveal">
+          <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 6L9 17l-5-5" />
+            </svg></div>
+          <div>
+            <h3>Quality Guaranteed</h3>
+            <p>Not happy? We'll replace or refund, no questions asked.</p>
+          </div>
+        </div>
+        <div class="feature-card card-hover reveal">
+          <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 12l2-2 4 4 10-10 2 2-12 12z" />
+            </svg></div>
+          <div>
+            <h3>Easy Returns</h3>
+            <p>Hassle-free returns within 24 hours of delivery.</p>
+          </div>
+        </div>
+        <div class="feature-card card-hover reveal">
+          <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M9 12h6M12 9v6" />
+            </svg></div>
+          <div>
+            <h3>Affordable Prices</h3>
+            <p>Everyday low prices with extra weekly savings.</p>
+          </div>
+        </div>
+        <div class="feature-card card-hover reveal">
+          <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="4" y="10" width="16" height="10" rx="2" />
+              <path d="M8 10V7a4 4 0 0 1 8 0v3" />
+            </svg></div>
+          <div>
+            <h3>Secure Checkout</h3>
+            <p>Your payments and data are always protected.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== HOME DELIVERY ===================== -->
+  <section>
+    <div class="container">
+      <div class="split">
+        <div class="reveal">
+          <span class="eyebrow">Delivery</span>
+          <h2>Fast, Reliable Home Delivery</h2>
+          <p>We deliver across your city in time slots that fit your schedule, with live tracking from packing to
+            doorstep.Enjoy convenient doorstep delivery with flexible time slots designed around your schedule. Our
+            dedicated logistics network ensures every order is carefully packed, dispatched promptly, and delivered in
+            perfect condition. Track your groceries in real time from packing to your doorstep, receive instant delivery
+            updates, and experience a seamless shopping journey every time.</p>
+          <div class="grid grid-2" style="margin-top:1.5rem;gap:1rem;">
+            <div class="feature-card" style="padding:1rem;">
+              <div class="icon-circle" style="width:46px;height:46px;"><svg viewBox="0 0 24 24" width="20" height="20"
+                  fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M12 7v5l3 3" />
+                </svg></div>
+              <div>
+                <h3 style="font-size:.95rem;">30–90 Min Slots</h3>
+              </div>
+            </div>
+            <div class="feature-card" style="padding:1rem;">
+              <div class="icon-circle" style="width:46px;height:46px;"><svg viewBox="0 0 24 24" width="20" height="20"
+                  fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 11l3 3L22 4" />
+                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                </svg></div>
+              <div>
+                <h3 style="font-size:.95rem;">Live Order Tracking</h3>
+              </div>
+            </div>
+          </div>
+          <a href="delivery-information.html" class="btn btn-primary" style="margin-top:1.5rem;">Delivery
+            Information</a>
+        </div>
+        <div class="reveal" style="text-align: center;"><img src="assets/images/hero-secondary.png"
+            alt="Home delivery illustration"
+            style="border-radius:var(--radius-lg); max-width: 85%; height: auto; margin: 0 auto; display: block;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== POPULAR BRANDS ===================== -->
+  <!-- <section class="bg-surface">
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">Trusted</span>
@@ -254,8 +319,8 @@
   </div>
 </section> -->
 
-<!-- ===================== FEATURED PRODUCTS ===================== -->
-<!-- <section>
+  <!-- ===================== FEATURED PRODUCTS ===================== -->
+  <!-- <section>
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">Best Sellers</span>
@@ -267,117 +332,167 @@
   </div>
 </section> -->
 
-<!-- ===================== TESTIMONIALS ===================== -->
-<section class="bg-surface">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Customer Love</span>
-      <h2>What Our Customers Say</h2>
+  <!-- ===================== TESTIMONIALS ===================== -->
+  <section class="bg-surface">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Customer Love</span>
+        <h2>What Our Customers Say</h2>
+      </div>
+      <div class="grid grid-3 stagger">
+        <div class="testimonial-card card-hover reveal">
+          <div class="stars">★★★★★</div>
+          <p>"Groceries arrive fresher than my local store, and the delivery slot always shows up on time."</p>
+          <div class="author">
+            <div class="avatar"><img src="assets/images/testimonial-amelia.png" alt="Amelia R."></div>
+            <div>
+              <div class="name">Amelia R.</div>
+              <div class="role">Verified Customer</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card card-hover reveal">
+          <div class="stars">★★★★★</div>
+          <p>"The weekly shopping list feature saves me so much time — I just reorder my essentials in one tap."</p>
+          <div class="author">
+            <div class="avatar"><img src="assets/images/testimonial-david.png" alt="David K."></div>
+            <div>
+              <div class="name">David K.</div>
+              <div class="role">Verified Customer</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card card-hover reveal">
+          <div class="stars">★★★★★</div>
+          <p>"Click & Collect is a lifesaver on busy weeks as well as In and out of the store in under five minutes."
+          </p>
+          <div class="author">
+            <div class="avatar"><img src="assets/images/testimonial-priya.png" alt="Priya N."></div>
+            <div>
+              <div class="name">Priya N.</div>
+              <div class="role">Verified Customer</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="grid grid-3 stagger">
-      <div class="testimonial-card card-hover reveal">
-        <div class="stars">★★★★★</div>
-        <p>"Groceries arrive fresher than my local store, and the delivery slot always shows up on time."</p>
-        <div class="author"><div class="avatar"><img src="assets/images/testimonial-amelia.png" alt="Amelia R."></div><div><div class="name">Amelia R.</div><div class="role">Verified Customer</div></div></div>
-      </div>
-      <div class="testimonial-card card-hover reveal">
-        <div class="stars">★★★★★</div>
-        <p>"The weekly shopping list feature saves me so much time — I just reorder my essentials in one tap."</p>
-        <div class="author"><div class="avatar"><img src="assets/images/testimonial-david.png" alt="David K."></div><div><div class="name">David K.</div><div class="role">Verified Customer</div></div></div>
-      </div>
-      <div class="testimonial-card card-hover reveal">
-        <div class="stars">★★★★★</div>
-        <p>"Click & Collect is a lifesaver on busy weeks as well as In and out of the store in under five minutes."</p>
-        <div class="author"><div class="avatar"><img src="assets/images/testimonial-priya.png" alt="Priya N."></div><div><div class="name">Priya N.</div><div class="role">Verified Customer</div></div></div>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ===================== STATISTICS ===================== -->
-<section>
-  <div class="container">
-    <div class="stats-grid reveal">
-      <div class="stat-item"><div class="num" data-counter="2500" data-suffix="+">0</div><div class="lbl">Happy Customers</div></div>
-      <div class="stat-item"><div class="num" data-counter="1200" data-suffix="+">0</div><div class="lbl">Products Available</div></div>
-      <div class="stat-item"><div class="num" data-counter="9800" data-suffix="+">0</div><div class="lbl">Orders Delivered</div></div>
-      <div class="stat-item"><div class="num" data-counter="15" data-suffix="+">0</div><div class="lbl">Years Serving</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== FAQ PREVIEW ===================== -->
-<section class="bg-surface">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Need Help?</span>
-      <h2>Frequently Asked Questions</h2>
-    </div>
-    <div class="accordion-group reveal">
-      <div class="accordion-item">
-        <button class="accordion-trigger">What are your delivery hours?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button>
-        <div class="accordion-panel"><div class="accordion-panel-inner">We deliver from 7am to 11pm, seven days a week, with flexible 30–90 minute time slots.</div></div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-trigger">Can I edit my order after placing it?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button>
-        <div class="accordion-panel"><div class="accordion-panel-inner">Yes, you can edit your order up to 1 hour before your scheduled delivery slot from your dashboard.</div></div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-trigger">Do you offer Click & Collect?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button>
-        <div class="accordion-panel"><div class="accordion-panel-inner">Absolutely — choose Click & Collect at checkout and pick a convenient pickup window at your nearest store.</div></div>
+  <!-- ===================== STATISTICS ===================== -->
+  <section>
+    <div class="container">
+      <div class="stats-grid reveal">
+        <div class="stat-item">
+          <div class="num" data-counter="2500" data-suffix="+">0</div>
+          <div class="lbl">Happy Customers</div>
+        </div>
+        <div class="stat-item">
+          <div class="num" data-counter="1200" data-suffix="+">0</div>
+          <div class="lbl">Products Available</div>
+        </div>
+        <div class="stat-item">
+          <div class="num" data-counter="9800" data-suffix="+">0</div>
+          <div class="lbl">Orders Delivered</div>
+        </div>
+        <div class="stat-item">
+          <div class="num" data-counter="15" data-suffix="+">0</div>
+          <div class="lbl">Years Serving</div>
+        </div>
       </div>
     </div>
-    <div style="text-align:center;margin-top:1.5rem;">
-      <a href="faq.html" class="btn btn-outline">View All FAQs</a>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ===================== NEWSLETTER ===================== -->
-<section>
-  <div class="container">
-    <div class="newsletter-band reveal">
-      <div>
-        <h2>Get Weekly Deals in Your Inbox</h2>
-        <p>Join 50,000+ subscribers and never miss a discount.</p>
+  <!-- ===================== FAQ PREVIEW ===================== -->
+  <section class="bg-surface">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Need Help?</span>
+        <h2>Frequently Asked Questions</h2>
       </div>
-      <form onsubmit="event.preventDefault(); this.reset(); alert('Subscribed successfully!');">
-        <input type="email" required placeholder="Enter your email" aria-label="Email">
-        <button type="submit" class="btn btn-secondary">Subscribe</button>
-      </form>
+      <div class="accordion-group reveal">
+        <div class="accordion-item">
+          <button class="accordion-trigger">What are your delivery hours?<svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <path d="M12 5v14M5 12h14" />
+            </svg></button>
+          <div class="accordion-panel">
+            <div class="accordion-panel-inner">We deliver from 7am to 11pm, seven days a week, with flexible 30–90
+              minute time slots.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger">Can I edit my order after placing it?<svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <path d="M12 5v14M5 12h14" />
+            </svg></button>
+          <div class="accordion-panel">
+            <div class="accordion-panel-inner">Yes, you can edit your order up to 1 hour before your scheduled delivery
+              slot from your dashboard.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger">Do you offer Click & Collect?<svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <path d="M12 5v14M5 12h14" />
+            </svg></button>
+          <div class="accordion-panel">
+            <div class="accordion-panel-inner">Absolutely — choose Click & Collect at checkout and pick a convenient
+              pickup window at your nearest store.</div>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:1.5rem;">
+        <a href="faq.html" class="btn btn-outline">View All FAQs</a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ===================== FINAL CTA ===================== -->
-<section>
-  <div class="container">
-    <div class="cta-banner reveal">
-      <h2>Start Your Weekly Shopping Today</h2>
-      <p>Build your cart in minutes and let us handle the rest — fresh groceries, delivered on your schedule.</p>
-      <a href="grocery.html" class="btn btn-secondary btn-lg">Start Shopping</a>
+  <!-- ===================== NEWSLETTER ===================== -->
+  <section>
+    <div class="container">
+      <div class="newsletter-band reveal">
+        <div>
+          <h2>Get Weekly Deals in Your Inbox</h2>
+          <p>Join 50,000+ subscribers and never miss a discount.</p>
+        </div>
+        <form onsubmit="event.preventDefault(); this.reset(); alert('Subscribed successfully!');">
+          <input type="email" required placeholder="Enter your email" aria-label="Email">
+          <button type="submit" class="btn btn-secondary">Subscribe</button>
+        </form>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer id="main-footer"></footer>
+  <!-- ===================== FINAL CTA ===================== -->
+  <section>
+    <div class="container">
+      <div class="cta-banner reveal">
+        <h2>Start Your Weekly Shopping Today</h2>
+        <p>Build your cart in minutes and let us handle the rest — fresh groceries, delivered on your schedule.</p>
+        <a href="grocery.html" class="btn btn-secondary btn-lg">Start Shopping</a>
+      </div>
+    </div>
+  </section>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/main.js"></script>
-<script src="assets/js/animations.js"></script>
-<script src="assets/js/products-data.js"></script>
-<script>
-  // Render Fresh Arrivals & Featured carousels using shared product data
-  document.addEventListener("DOMContentLoaded", function(){
-    if (window.FM_PRODUCTS && window.FM_renderProductCard){
-      const freshTrack = document.getElementById("freshArrivalsTrack");
-      const featuredTrack = document.getElementById("featuredTrack");
-      const fresh = window.FM_PRODUCTS.slice(0,6);
-      const featured = window.FM_PRODUCTS.slice(4,12);
-      fresh.forEach(p => freshTrack.insertAdjacentHTML("beforeend", window.FM_renderProductCard(p, false)));
-      featured.forEach(p => featuredTrack.insertAdjacentHTML("beforeend", window.FM_renderProductCard(p, true)));
-    }
-  });
-</script>
+  <footer id="main-footer"></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/animations.js"></script>
+  <script src="assets/js/products-data.js"></script>
+  <script>
+    // Render Fresh Arrivals & Featured carousels using shared product data
+    document.addEventListener("DOMContentLoaded", function () {
+      if (window.FM_PRODUCTS && window.FM_renderProductCard) {
+        const freshTrack = document.getElementById("freshArrivalsTrack");
+        const featuredTrack = document.getElementById("featuredTrack");
+        const fresh = window.FM_PRODUCTS.slice(0, 6);
+        const featured = window.FM_PRODUCTS.slice(4, 12);
+        fresh.forEach(p => freshTrack.insertAdjacentHTML("beforeend", window.FM_renderProductCard(p, false)));
+        featured.forEach(p => featuredTrack.insertAdjacentHTML("beforeend", window.FM_renderProductCard(p, true)));
+      }
+    });
+  </script>
 </body>
+
 </html>

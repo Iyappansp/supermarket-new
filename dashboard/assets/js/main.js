@@ -65,11 +65,13 @@
             <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
             <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>
           </button>
+          <button type="button" class="notification-toggle" aria-label="Notifications" title="Notifications" onclick="alert('You have no new notifications.');">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+            <span class="notification-badge"></span>
+          </button>
         </div>
       
-        <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Open settings">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-        </button>
+        
       </div>
     </div>
   </div>
@@ -92,7 +94,7 @@
     <div class="mobile-drawer-body">
       <a class="mob-link" href="${ROOT}login.html" data-page="logout">Logout</a>
       <div class="drawer-utility" style="margin-top:2rem; padding-top:1.5rem; border-top:1px solid var(--color-border); display:flex; justify-content:space-between; align-items:center; gap:1rem;">
-        <span style="font-size:0.88rem; font-weight:600; color:var(--text-secondary);">Settings</span>
+        <span style="font-size:0.88rem; font-weight:600; color:var(--text-secondary);">Options</span>
         <div style="display:flex; gap:0.5rem;">
           <button type="button" class="rtl-toggle" aria-label="Toggle right to left layout" style="width:44px; height:44px; border-radius:50%; background:var(--surface-2); border:0; color:var(--text-primary); display:flex; align-items:center; justify-content:center; cursor:pointer; font-family:var(--font-heading); font-weight:700; font-size:0.8rem;">RTL</button>
           <button type="button" class="theme-toggle" aria-label="Toggle dark mode" style="width:44px; height:44px; border-radius:50%; background:var(--surface-2); border:0; color:var(--text-primary); display:flex; align-items:center; justify-content:center; cursor:pointer;">
