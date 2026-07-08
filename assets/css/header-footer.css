@@ -66,23 +66,23 @@
 
 /* Prevent content from overlapping under the fixed header */
 .site-header+* {
-  margin-top: 108px;
+  margin-top: var(--site-header-height, 108px);
 }
 
 @media (max-width: 768px) {
   .site-header+* {
-    margin-top: 96px;
+    margin-top: var(--site-header-height, 96px);
   }
 }
 
 /* Dashboard adjacent sibling override (no top bar in dashboard header) */
 .site-header+.dashboard-layout {
-  margin-top: 76px;
+  margin-top: var(--site-header-height, 76px);
 }
 
 @media (max-width: 768px) {
   .site-header+.dashboard-layout {
-    margin-top: 64px;
+    margin-top: var(--site-header-height, 64px);
   }
 }
 

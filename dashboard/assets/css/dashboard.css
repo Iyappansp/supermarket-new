@@ -6,7 +6,7 @@
 .dashboard-layout{
   display: grid;
   grid-template-columns: 270px 1fr;
-  height: calc(100vh - var(--header-height));
+  height: calc(100vh - var(--site-header-height, var(--header-height)));
   overflow: hidden;
 }
 
@@ -16,8 +16,8 @@
   border-inline-end: 1px solid var(--color-border);
   padding: 1.5rem 1rem;
   position: sticky;
-  top: var(--header-height);
-  height: calc(100vh - var(--header-height));
+  top: var(--site-header-height, var(--header-height));
+  height: calc(100vh - var(--site-header-height, var(--header-height)));
   overflow-y: auto;
   transition: width var(--transition-base);
 }
@@ -141,7 +141,7 @@
   .dash-sidebar.collapsed{ width:80%; max-width:300px; }
   .dash-sidebar.collapsed .nav-label, .dash-sidebar.collapsed .dash-user .info{ display:block; }
   .dash-sidebar-close-btn { display: flex; }
-  .dash-sidebar .dash-user { margin-top: 1.5rem; }
+  .dash-sidebar .dash-user { margin-top: 3.5rem; }
 }
 
 /* Ensure cards stretch to equal height in grid layouts */

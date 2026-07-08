@@ -226,6 +226,13 @@
   </div>
   `;
 
+  function updateHeaderHeight() {
+    const header = document.getElementById("main-header");
+    if (header) {
+      document.documentElement.style.setProperty('--site-header-height', `${header.offsetHeight}px`);
+    }
+  }
+
   /* ---------------------------------------------------
      6. INJECT HEADER / FOOTER / DRAWER
   --------------------------------------------------- */
@@ -239,6 +246,11 @@
       headerEl.innerHTML = headerHTML;
       document.body.insertAdjacentHTML("afterbegin", drawerHTML);
       applyDir(getStoredDir());
+      
+      // Dynamic header height measurement
+      updateHeaderHeight();
+      window.addEventListener('resize', updateHeaderHeight);
+      window.addEventListener('load', updateHeaderHeight);
     }
 
     if (authShell && !authShell.querySelector(".auth-utility")) {
