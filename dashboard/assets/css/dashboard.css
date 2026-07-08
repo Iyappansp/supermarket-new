@@ -6,7 +6,8 @@
 .dashboard-layout{
   display: grid;
   grid-template-columns: 270px 1fr;
-  min-height: calc(100vh - var(--header-height));
+  height: calc(100vh - var(--header-height));
+  overflow: hidden;
 }
 
 /* ---- Sidebar ---- */
@@ -50,6 +51,25 @@
 .dash-nav .nav-label{ overflow:hidden; transition: opacity var(--transition-base); }
 .dash-sidebar.collapsed .nav-label{ display:none; }
 .dash-nav hr{ border:0; border-top:1px solid var(--color-border); margin: .75rem 0; }
+
+/* Logout premium red theme */
+.dash-nav a[data-page="logout"] {
+  color: var(--color-danger, #ef4444);
+  background: rgba(239, 68, 68, 0.08);
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+.dash-nav a[data-page="logout"] svg {
+  color: var(--color-danger, #ef4444);
+}
+.dash-nav a[data-page="logout"]:hover {
+  background: var(--color-danger, #ef4444) !important;
+  color: #fff !important;
+}
+.dash-nav a[data-page="logout"]:hover svg {
+  color: #fff !important;
+}
+
 
 .sidebar-collapse-btn{
   width:100%; display:flex; align-items:center; justify-content:center; gap:.5rem;
@@ -107,8 +127,16 @@
   .dash-sidebar .dash-user { margin-top: 1.5rem; }
 }
 
+/* Ensure cards stretch to equal height in grid layouts */
+.dash-stat-card,
+.quick-action,
+.order-card,
+.address-card {
+  height: 100%;
+}
+
 /* ---- Main content ---- */
-.dash-main{ padding: 2rem; background: var(--surface-1); }
+.dash-main{ padding: 2rem; background: var(--surface-1); overflow-y: auto; height: 100%; }
 @media (max-width: 768px){ .dash-main{ padding: 1.25rem; } }
 
 .dash-header-row{ display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1.5rem; flex-wrap:wrap; }
@@ -266,3 +294,43 @@
 .dashboard-header-wrap .header-main {
   justify-content: space-between;
 }
+
+/* Mobile drawer logout option styling */
+.mobile-drawer .mob-link[data-page="logout"] {
+  background-color: rgba(239, 68, 68, 0.08);
+  color: var(--color-danger, #ef4444) !important;
+  padding: 0.85rem 1.1rem;
+  border-radius: var(--radius-md);
+  margin-top: 1rem;
+  border-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+.mobile-drawer .mob-link[data-page="logout"]:hover {
+  background-color: var(--color-danger, #ef4444) !important;
+  color: #fff !important;
+}
+
+/* Disable scroll reveal animations in dashboard for instant visibility */
+.dashboard-layout .reveal,
+.dashboard-layout .reveal-fade {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+@keyframes mapPulse {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.15); opacity: 0.4; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+@keyframes mapVehicleMove {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(5px, -5px); }
+  100% { transform: translate(0, 0); }
+}
+

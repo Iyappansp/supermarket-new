@@ -224,7 +224,11 @@
 <header id="main-header"></header>
 
 <!-- ===================== LIFESTYLE HERO ===================== -->
-<section class="hero-banner has-bg" style="background-image: url('assets/home2/image.png');">
+<section class="hero-banner has-video">
+  <video autoplay loop muted playsinline class="hero-video-bg">
+    <source src="assets/4121739-uhd_3840_2160_25fps.mp4" type="video/mp4">
+  </video>
+  <div class="hero-video-overlay"></div>
   <div class="container">
     <div class="hero-content reveal text-center" style="max-width: 800px; margin: 0 auto;">
       <span class="eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>Live Fresh, Live Well</span>
@@ -258,7 +262,7 @@
         <div class="card-img-zoom" style="aspect-ratio:4/3;"><img src="assets/images/dept-bakery.png" alt="Comfort Bakes"></div>
         <div style="padding:1.25rem;">
           <h3>Comfort Bakes</h3>
-          <p class="fs-sm">Warm bread and pastries for cozy mornings.</p>
+          <p class="fs-sm">Warm bread and pastries for cozy .</p>
         </div>
       </div>
       <div class="card-hover reveal" style="overflow:hidden;">
@@ -307,7 +311,7 @@
           <button class="btn btn-primary btn-lg" onclick="addRecipeBundleToCart()">Add Recipe Box to Cart</button>
         </div>
         <div style="text-align: center;">
-          <img id="recipeImg" src="assets/images/dept-fruits.png" alt="Recipe illustration" style="border-radius: var(--radius-md); max-width: 100%; height: 380px; object-fit: cover;">
+          <img id="recipeImg" src="assets/images/recipe-veggie-stir-fry.png" alt="Recipe illustration" style="border-radius: var(--radius-md); max-width: 100%; height: 380px; object-fit: cover;">
         </div>
       </div>
     </div>
@@ -354,7 +358,7 @@
     <div class="spotlight-card reveal">
       <div class="spotlight-img" style="background-image: url('assets/images/about-story.png');"></div>
       <div class="spotlight-text">
-        <span class="eyebrow" style="color: var(--color-secondary);">Farmer Spotlight</span>
+        <span class="eyebrow" style="color: var(--color-secondary-dark); background: var(--color-secondary-light); align-self: flex-start;">Farmer Spotlight</span>
         <h3 style="font-size: 1.6rem; margin-bottom: 0.8rem;">GreenValley Organic Farm</h3>
         <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
           Located in Cedar Creek, just 30 miles from our downtown market, GreenValley has been our primary organic crop partner since 2014. By committing to non-GMO seeds, zero synthetic pesticides, and regenerative farming practices, they provide the absolute freshest organic leafy greens, heirloom tomatoes, and crisp root vegetables to our customers' tables.
@@ -402,20 +406,20 @@
             <span>NUTRITION</span>
             <span style="color:var(--text-secondary);">6 Min Read</span>
           </div>
-          <h3 style="font-size:1.2rem; line-height:1.4; margin-bottom:0.75rem;">The Benefits of Organic Sourcing & Sustainable Farming</h3>
+          <h3 style="font-size:1.2rem; line-height:1.4; margin-bottom:0.75rem;">The Benefits of Organic Sourcing & Sustainable</h3>
           <p class="fs-sm" style="color:var(--text-secondary); margin:0 0 1.5rem; line-height:1.6; flex:1;">Why organic farming is better for the soil, biodiversity, and your family's daily health. A deep dive into our sourcing standards.</p>
           <a href="#" class="btn btn-outline btn-sm" style="align-self:flex-start;">Read Article</a>
         </div>
       </div>
       <div class="card-hover reveal" style="overflow:hidden; display:flex; flex-direction:column; background:var(--surface-1); border:1px solid var(--border-color); border-radius:var(--radius-md);">
-        <div class="card-img-zoom" style="aspect-ratio:16/10; overflow:hidden;"><img src="assets/images/dept-bakery.png" alt="Meal Prep Kitchen" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="card-img-zoom" style="aspect-ratio:16/10; overflow:hidden;"><img src="assets/home2/Meal Prep 101 How to Save 5 Hours Every Week.png" alt="Meal Prep Kitchen" style="width:100%; height:100%; object-fit:cover;"></div>
         <div style="padding:1.5rem; display:flex; flex-direction:column; flex:1;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem; font-size:0.8rem; color:var(--color-primary); font-weight:600;">
             <span>HEALTHY HABITS</span>
             <span style="color:var(--text-secondary);">5 Min Read</span>
           </div>
           <h3 style="font-size:1.2rem; line-height:1.4; margin-bottom:0.75rem;">Meal Prep 101: How to Save 5 Hours Every Week</h3>
-          <p class="fs-sm" style="color:var(--text-secondary); margin:0 0 1.5rem; line-height:1.6; flex:1;">Simplify your busy weeknights with these practical steps to organize, prep, and batch-cook fresh food efficiently.</p>
+          <p class="fs-sm" style="color:var(--text-secondary); margin:0 0 1.5rem; line-height:1.6; flex:1;">Simplify your busy weeknights with these practical steps to organize, prep, as well as the  batch-cook fresh food efficiently.</p>
           <a href="#" class="btn btn-outline btn-sm" style="align-self:flex-start;">Read Article</a>
         </div>
       </div>
@@ -597,7 +601,7 @@ document.addEventListener("DOMContentLoaded", function(){
       ingredients: ["Organic Broccoli Crown", "Local Carrot Bunch", "Artisanal Sesame Glaze", "Green Scallions", "Brown Jasmine Rice", "Organic Firm Tofu"],
       oldPrice: "$18.50",
       price: "$14.99",
-      img: "assets/images/dept-fruits.png"
+      img: "assets/images/recipe-veggie-stir-fry.png"
     },
     keto: {
       title: "Keto Energy Fuel Kit",
@@ -605,7 +609,7 @@ document.addEventListener("DOMContentLoaded", function(){
       ingredients: ["Organic Hass Avocados", "Grass-Fed Dairy Butter", "Pasture-Raised Eggs", "Thick-Cut Smoked Bacon", "Fresh Baby Spinach", "Sharp Aged Cheddar"],
       oldPrice: "$24.00",
       price: "$19.99",
-      img: "assets/images/dept-dairy.png"
+      img: "assets/images/recipe-keto-energy.png"
     },
     family: {
       title: "Sunday Roast Family Bundle",
@@ -613,7 +617,7 @@ document.addEventListener("DOMContentLoaded", function(){
       ingredients: ["Premium Searing Joint", "Local Baking Potatoes", "Fresh Rosemary & Thyme", "Organic Baby Carrots", "Artisanal Gravy Stock", "Fresh Bakery Dinner Rolls"],
       oldPrice: "$45.00",
       price: "$37.50",
-      img: "assets/images/dept-bakery.png"
+      img: "assets/images/recipe-sunday-roast.png"
     },
     quick: {
       title: "15-Min Pesto Pasta Kit",
@@ -621,7 +625,7 @@ document.addEventListener("DOMContentLoaded", function(){
       ingredients: ["Organic Durum Pasta", "Fresh Sweet Basil Pesto", "Organic Cherry Tomatoes", "Extra Virgin Olive Oil", "Shaved Parmesan Cheese", "Toasted Pine Nuts"],
       oldPrice: "$15.99",
       price: "$11.99",
-      img: "assets/images/dept-grocery.png"
+      img: "assets/images/recipe-pesto-pasta.png"
     }
   };
 

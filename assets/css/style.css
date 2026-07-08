@@ -65,6 +65,12 @@
   --container-max: 1320px;
 }
 
+@media (max-width: 768px) {
+  :root {
+    --header-height: 64px;
+  }
+}
+
 /* =========================================================
    DARK MODE
    ========================================================= */
@@ -161,6 +167,18 @@ h6 {
 p {
   margin: 0 0 var(--space-sm);
   color: var(--text-secondary);
+  text-align: justify;
+  line-height: 1.8;
+}
+
+.text-center p,
+.text-start p,
+.text-end p,
+.hero-banner p,
+.cta-banner p,
+#main-footer p,
+.section-head p {
+  text-align: inherit;
 }
 
 .container {
@@ -200,7 +218,7 @@ textarea:focus-visible {
   margin: 0 auto var(--space-lg);
 }
 
-.section-head .eyebrow {
+.eyebrow {
   display: inline-flex;
   align-items: center;
   gap: .5rem;

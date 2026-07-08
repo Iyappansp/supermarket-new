@@ -13,6 +13,82 @@
 <link rel="stylesheet" href="assets/css/responsive.css">
 <link rel="stylesheet" href="assets/css/dark-mode.css">
 <link rel="stylesheet" href="assets/css/rtl.css">
+<style>
+  .slot-card {
+    padding: 2.25rem 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--surface-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform var(--transition-slow), box-shadow var(--transition-slow), border-color var(--transition-base), background-color var(--transition-base);
+  }
+  .slot-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--color-primary);
+  }
+  .slot-card.active {
+    border-color: var(--color-primary);
+    background: var(--color-primary-light);
+    box-shadow: 0 8px 24px rgba(46, 125, 50, 0.16);
+  }
+  .slot-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--surface-1);
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-base);
+    margin-bottom: 0.25rem;
+  }
+  .slot-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+  .slot-card:hover .slot-icon, .slot-card.active .slot-icon {
+    background: var(--color-primary);
+    color: #fff;
+    transform: scale(1.08);
+  }
+  .slot-time {
+    font-size: 1.15rem;
+    color: var(--text-primary);
+    font-weight: 700;
+  }
+  .slot-name {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+  }
+  .slot-badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-pill);
+    margin-top: 0.5rem;
+  }
+  .status-available {
+    background: #E8F5E9;
+    color: #2E7D32;
+  }
+  .status-fast {
+    background: #FFF3D6;
+    color: #C17900;
+  }
+  .status-limited {
+    background: #FFEBEE;
+    color: #C62828;
+  }
+</style>
 </head>
 <body>
 <header id="main-header"></header>
@@ -43,7 +119,7 @@
     <div class="grid grid-4 stagger">
       <div class="feature-card card-hover reveal" style="flex-direction:column;text-align:center;align-items:center;">
         <div class="icon-circle" style="margin:0 auto;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.4-7-11a7 7 0 1 1 14 0c0 5.6-7 11-7 11z"/><circle cx="12" cy="10" r="3"/></svg></div>
-        <h3>Zone A — City Center</h3><p class="fs-sm">Delivery in 30–60 minutes</p>
+        <h3>Zone A — Center</h3><p class="fs-sm">Delivery in 30–60 minutes</p>
       </div>
       <div class="feature-card card-hover reveal" style="flex-direction:column;text-align:center;align-items:center;">
         <div class="icon-circle" style="margin:0 auto;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.4-7-11a7 7 0 1 1 14 0c0 5.6-7 11-7 11z"/><circle cx="12" cy="10" r="3"/></svg></div>
@@ -51,7 +127,7 @@
       </div>
       <div class="feature-card card-hover reveal" style="flex-direction:column;text-align:center;align-items:center;">
         <div class="icon-circle" style="margin:0 auto;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.4-7-11a7 7 0 1 1 14 0c0 5.6-7 11-7 11z"/><circle cx="12" cy="10" r="3"/></svg></div>
-        <h3>Zone C — Outskirts</h3><p class="fs-sm">Next-day scheduled delivery</p>
+        <h3>Zone C — Outskirts</h3><p class="fs-sm">Next-day scheduled</p>
       </div>
       <div class="feature-card card-hover reveal" style="flex-direction:column;text-align:center;align-items:center;">
         <div class="icon-circle" style="margin:0 auto;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h11v8H3z"/><path d="M14 10h4l3 3v2h-7z"/><circle cx="7" cy="18" r="1.5"/><circle cx="17" cy="18" r="1.5"/></svg></div>
@@ -88,21 +164,64 @@
       <p>Choose a slot that fits your day — available 7 days a week.</p>
     </div>
     <div class="grid grid-4 stagger">
-      <div class="card-hover reveal" style="padding:1.25rem;text-align:center;">
-        <strong>7:00 AM – 9:00 AM</strong><p class="fs-sm" style="margin:.4rem 0 0;">Early Morning</p>
+      <div class="slot-card reveal" onclick="selectSlot(this, '7:00 AM – 9:00 AM')">
+        <div class="slot-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <strong class="slot-time">7:00 AM – 9:00 AM</strong>
+        <span class="slot-name">Early Morning</span>
+        <span class="slot-badge status-available">Slots Available</span>
       </div>
-      <div class="card-hover reveal" style="padding:1.25rem;text-align:center;">
-        <strong>10:00 AM – 1:00 PM</strong><p class="fs-sm" style="margin:.4rem 0 0;">Late Morning</p>
+      <div class="slot-card reveal" onclick="selectSlot(this, '10:00 AM – 1:00 PM')">
+        <div class="slot-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <strong class="slot-time">10:00 AM – 1:00 PM</strong>
+        <span class="slot-name">Late Morning</span>
+        <span class="slot-badge status-fast">Filling Fast</span>
       </div>
-      <div class="card-hover reveal" style="padding:1.25rem;text-align:center;">
-        <strong>2:00 PM – 5:00 PM</strong><p class="fs-sm" style="margin:.4rem 0 0;">Afternoon</p>
+      <div class="slot-card reveal" onclick="selectSlot(this, '2:00 PM – 5:00 PM')">
+        <div class="slot-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <strong class="slot-time">2:00 PM – 5:00 PM</strong>
+        <span class="slot-name">Afternoon</span>
+        <span class="slot-badge status-limited">Limited Slots</span>
       </div>
-      <div class="card-hover reveal" style="padding:1.25rem;text-align:center;">
-        <strong>6:00 PM – 11:00 PM</strong><p class="fs-sm" style="margin:.4rem 0 0;">Evening</p>
+      <div class="slot-card reveal" onclick="selectSlot(this, '6:00 PM – 11:00 PM')">
+        <div class="slot-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <strong class="slot-time">6:00 PM – 11:00 PM</strong>
+        <span class="slot-name">Evening</span>
+        <span class="slot-badge status-available">Slots Available</span>
       </div>
+    </div>
+    
+    <div class="selected-slot-banner text-center reveal" id="selectedSlotBanner" style="display:none; margin-top:2.5rem; padding: 1.25rem; border-radius: var(--radius-md); background: var(--color-primary-light); color: var(--color-primary-dark); font-weight: 600; border: 1px solid rgba(46, 125, 50, 0.2);">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px; vertical-align: text-top; margin-right: 0.5rem; display: inline-block;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      Selected Delivery Slot: <span id="selectedSlotTime" style="font-weight: 700;">None</span>
     </div>
   </div>
 </section>
+
+<script>
+  function selectSlot(element, slotTime) {
+    document.querySelectorAll('.slot-card').forEach(card => card.classList.remove('active'));
+    element.classList.add('active');
+    
+    const banner = document.getElementById('selectedSlotBanner');
+    const slotSpan = document.getElementById('selectedSlotTime');
+    slotSpan.textContent = slotTime;
+    banner.style.display = 'block';
+    
+    banner.style.transform = 'scale(0.98)';
+    setTimeout(() => {
+      banner.style.transform = 'scale(1)';
+      banner.style.transition = 'transform 0.2s ease';
+    }, 50);
+  }
+</script>
 
 <section class="bg-surface" id="pickup">
   <div class="container">
@@ -112,6 +231,7 @@
         <span class="eyebrow">Pickup Service</span>
         <h2>Click & Collect</h2>
         <p>Order online and pick up curbside at your nearest store — usually ready within an hour, completely free.</p>
+        <p>Save time with our convenient Click & Collect service. Browse thousands of fresh groceries online, place your order in just a few clicks, and pick it up from your selected store at a time that works best for you. Every order is freshly prepared, securely packed, and ready for a smooth, contact-free collection.</p>
         <ul style="display:flex;flex-direction:column;gap:.6rem;margin-top:1.25rem;color:var(--text-secondary);font-size:.92rem;">
           <li>✓ No delivery fee, ever</li>
           <li>✓ Ready in as little as 60 minutes</li>
@@ -123,6 +243,96 @@
     </div>
   </div>
 </section>
+
+  <!-- ===================== DELIVERY ESTIMATOR SECTION ===================== -->
+  <section class="bg-surface estimator-section" id="estimator" style="border-top: 1px solid var(--color-border); padding: 5rem 0;">
+    <div class="container">
+      <div class="section-head reveal text-center" style="max-width: 600px; margin: 0 auto 2.5rem;">
+        <span class="eyebrow">Interactive Estimator</span>
+        <h2>Calculate Your Delivery Fee & Speed</h2>
+        <p>Enter your planned basket value and select your preferred service to see instant rates and estimated arrival times.</p>
+      </div>
+
+      <div class="reveal" style="max-width: 600px; margin: 0 auto; background: var(--surface-card); padding: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--color-border); box-shadow: var(--shadow-md);">
+        <div style="margin-bottom: 1.5rem;">
+          <label class="form-label" style="margin-bottom: 0.5rem; display: block; font-weight: 600; text-align: start;">Planned Order Value ($)</label>
+          <input type="number" id="estOrderValue" class="form-control" value="65" min="0" placeholder="e.g. 50" style="font-weight: 600; height: auto; padding: 0.75rem 1rem;">
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <label class="form-label" style="margin-bottom: 0.5rem; display: block; font-weight: 600; text-align: start;">Select Delivery Speed</label>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <button type="button" class="btn btn-outline est-zone-btn active" onclick="setEstZone(this, 'standard')" style="flex: 1; min-width: 120px; font-weight: 600;">Standard</button>
+            <button type="button" class="btn btn-outline est-zone-btn" onclick="setEstZone(this, 'express')" style="flex: 1; min-width: 120px; font-weight: 600;">Express</button>
+            <button type="button" class="btn btn-outline est-zone-btn" onclick="setEstZone(this, 'pickup')" style="flex: 1; min-width: 120px; font-weight: 600;">Pickup</button>
+          </div>
+        </div>
+
+        <div style="background: var(--surface-1); padding: 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); text-align: center; margin-top: 1rem;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div>
+              <span class="fs-xs" style="color: var(--text-secondary); display: block; margin-bottom: 0.25rem;">Delivery Charge</span>
+              <strong id="estCharge" style="font-size: 1.5rem; color: var(--color-primary);">FREE</strong>
+            </div>
+            <div>
+              <span class="fs-xs" style="color: var(--text-secondary); display: block; margin-bottom: 0.25rem;">Estimated Time</span>
+              <strong id="estTime" style="font-size: 1.15rem; color: var(--text-primary);">Same Day (2-4 hrs)</strong>
+            </div>
+          </div>
+          <div id="estPromoNote" class="fs-xs" style="color: var(--color-primary); margin-top: 0.75rem; font-weight: 600;">You saved $4.99 with Free Standard Delivery over $50!</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    let currentEstZone = 'standard';
+    
+    function setEstZone(btn, zone) {
+      document.querySelectorAll('.est-zone-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentEstZone = zone;
+      calculateDeliveryEst();
+    }
+    
+    function calculateDeliveryEst() {
+      const val = parseFloat(document.getElementById('estOrderValue').value || 0);
+      const chargeEl = document.getElementById('estCharge');
+      const timeEl = document.getElementById('estTime');
+      const noteEl = document.getElementById('estPromoNote');
+      
+      if (currentEstZone === 'standard') {
+        if (val >= 50) {
+          chargeEl.textContent = 'FREE';
+          noteEl.textContent = 'You saved $4.99 with Free Standard Delivery over $50!';
+          noteEl.style.color = 'var(--color-primary)';
+        } else {
+          chargeEl.textContent = '$4.99';
+          noteEl.textContent = `Add $${(50 - val).toFixed(2)} more to unlock free delivery!`;
+          noteEl.style.color = 'var(--text-secondary)';
+        }
+        timeEl.textContent = 'Same Day (2-4 hrs)';
+      } else if (currentEstZone === 'express') {
+        if (val >= 100) {
+          chargeEl.textContent = 'FREE';
+          noteEl.textContent = 'You saved $9.99 with Free Express Delivery over $100!';
+          noteEl.style.color = 'var(--color-primary)';
+        } else {
+          chargeEl.textContent = '$9.99';
+          noteEl.textContent = `Add $${(100 - val).toFixed(2)} more to unlock free Express!`;
+          noteEl.style.color = 'var(--text-secondary)';
+        }
+        timeEl.textContent = 'Within 60 Mins';
+      } else if (currentEstZone === 'pickup') {
+        chargeEl.textContent = 'FREE';
+        timeEl.textContent = 'Ready in 1 Hr';
+        noteEl.textContent = 'Curbside click & collect is always 100% free.';
+        noteEl.style.color = 'var(--color-primary)';
+      }
+    }
+    
+    document.getElementById('estOrderValue')?.addEventListener('input', calculateDeliveryEst);
+  </script>
 
 <footer id="main-footer"></footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

@@ -46,8 +46,19 @@
 <script>
 document.addEventListener("DOMContentLoaded", function(){
   if (window.FM_PRODUCTS && window.FM_renderProductCard){
-    // products-data.js uses "assets/images/" — adjust prefix for dashboard depth
-    const saved = window.FM_PRODUCTS.slice(0,6).map(p => ({...p, img: "../" + p.img}));
+    // products-data.js uses "assets/images/" — adjust prefix and use unique generated alt assets
+    const altImages = {
+      1: "../assets/images/p-apple-alt.png",
+      2: "../assets/images/p-carrot-alt.png",
+      3: "../assets/images/p-broccoli-alt.png",
+      4: "../assets/images/p-bread-alt.png",
+      5: "../assets/images/p-milk-alt.png",
+      6: "../assets/images/p-cheese-alt.png"
+    };
+    const saved = window.FM_PRODUCTS.slice(0,6).map(p => ({
+      ...p,
+      img: altImages[p.id] || ("../" + p.img)
+    }));
     document.getElementById("dashWishlistGrid").innerHTML = saved.map(p => window.FM_renderProductCard(p,false)).join("");
   }
 });

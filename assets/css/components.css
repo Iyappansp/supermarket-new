@@ -3,6 +3,22 @@
   background-color: var(--surface-card) !important;
 }
 
+/* Ensure cards stretch to equal height in grid layouts across all devices */
+.dept-card,
+.offer-card,
+.feature-card,
+.testimonial-card,
+.product-card {
+  height: 100%;
+}
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+}
+.testimonial-card .author {
+  margin-top: auto; /* Push author info to the bottom of the card */
+}
+
 /* ---- Hero Banner ---- */
 .hero-banner {
   position: relative;
@@ -111,6 +127,12 @@
   gap: 2rem;
   margin-top: 2rem;
   flex-wrap: wrap;
+}
+
+.hero-banner .hero-stats div {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.45rem;
 }
 
 .hero-banner .hero-stats .num {
@@ -326,6 +348,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  padding: 0;
   transition: transform var(--transition-slow);
 }
 
@@ -746,6 +769,11 @@
   color: rgba(255, 255, 255, .7);
 }
 
+.cta-banner .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.75) !important;
+  opacity: 1;
+}
+
 @media (max-width:768px) {
   .newsletter-band form {
     min-width: auto;
@@ -866,6 +894,22 @@ textarea.form-control {
   width: 100%;
   max-width: 440px;
   border: 1px solid var(--color-border);
+}
+
+.auth-card .auth-logo {
+  display: block;
+  margin: 0 auto 1.5rem;
+  text-align: center;
+  transition: transform var(--transition-base);
+}
+
+
+.auth-card a.auth-logo {
+  display: block;
+}
+
+.auth-card a.auth-logo:hover {
+  transform: scale(1.05);
 }
 
 .auth-card .auth-icon {
@@ -1025,7 +1069,7 @@ textarea.form-control {
   flex-direction: column;
   gap: 0;
   max-width: 640px;
-  margin: 0 auto;
+  margin: 0;
 }
 
 .tracking-step {
@@ -1458,4 +1502,203 @@ textarea.form-control {
   display: flex;
   gap: 0.5rem;
   z-index: 10;
+}
+
+/* Password Input Toggle Visibility Layout */
+.password-input-wrap {
+  position: relative;
+  display: block;
+}
+
+.password-input-wrap .form-control {
+  padding-right: 2.8rem;
+}
+
+[dir="rtl"] .password-input-wrap .form-control {
+  padding-right: 1.1rem;
+  padding-left: 2.8rem;
+}
+
+.password-input-wrap .password-toggle-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1.1rem;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  transition: color var(--transition-base), transform var(--transition-base);
+}
+
+[dir="rtl"] .password-input-wrap .password-toggle-btn {
+  right: auto;
+  left: 1.1rem;
+}
+
+.password-input-wrap .password-toggle-btn:hover {
+  color: var(--color-primary);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.password-input-wrap .password-toggle-btn svg {
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+  display: block;
+}
+
+/* Auth card logo display fix & dark theme contrast plate */
+.auth-card .auth-logo img {
+  height: 80px; /* Simple and bigger! */
+  width: auto;
+  display: block;
+  object-fit: contain;
+  margin: 0 auto;
+  transition: filter var(--transition-base);
+}
+
+/* [data-theme="dark"] .auth-logo img {
+  filter: brightness(0) invert(1);
+} */
+
+/* Video Hero Banner layout & opacity overlay */
+.hero-banner.has-video {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(90vh - 80px);
+  padding: 10rem 0;
+  color: #fff !important;
+  overflow: hidden;
+  background: #050a06;
+}
+
+.hero-banner.has-video .container {
+  position: relative;
+  z-index: 3;
+}
+
+.hero-banner.has-video h1 {
+  color: #fff !important;
+}
+
+.hero-banner.has-video h1 .text-secondary-c {
+  color: var(--color-primary-bright, #81C784) !important;
+}
+
+.hero-banner.has-video .hero-sub {
+  color: rgba(255, 255, 255, 0.95) !important;
+  max-width: 650px;
+  margin: 0 auto 2rem;
+}
+
+.hero-video-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  opacity: 0.45; /* Slightly opacity medium lesser */
+  z-index: 1;
+}
+
+.hero-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45); /* Clear solid overlay only */
+  z-index: 2;
+}
+
+/* App Preferences Theme/RTL Showcase Cards */
+.preferences-showcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .preferences-showcase {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.pref-card {
+  background: var(--surface-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pref-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary);
+}
+
+.pref-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.pref-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.pref-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.pref-card p {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+.pref-card .btn {
+  width: 100%;
+  max-width: 220px;
+  font-weight: 600;
+}
+
+/* Custom override to make product image container in Fresh Arrivals slightly smaller */
+#freshArrivalsTrack .product-card .card-img-zoom {
+  aspect-ratio: 5/4;
 }

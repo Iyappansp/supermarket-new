@@ -145,20 +145,14 @@
 <!-- ===================== FRESH ARRIVALS ===================== -->
 <section>
   <div class="container">
-    <div class="row-between reveal" style="margin-bottom:1.5rem;">
-      <div class="section-head" style="text-align:start;margin:0;">
+    <div class="reveal" style="margin-bottom:2rem; text-align:center;">
+      <div class="section-head" style="text-align:center; margin:0 auto;">
         <span class="eyebrow">Just In</span>
         <h2>Fresh Arrivals</h2>
       </div>
-      <div class="slider-arrows" style="margin:0;">
-        <button class="arrow-prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
-        <button class="arrow-next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
-      </div>
     </div>
-    <div class="carousel reveal">
-      <div class="carousel-track" id="freshArrivalsTrack" style="padding-inline:.25rem;">
-        <!-- product cards injected by JS for reuse -->
-      </div>
+    <div class="grid grid-3 reveal" id="freshArrivalsTrack">
+      <!-- product cards injected by JS for reuse -->
     </div>
   </div>
 </section>
@@ -177,7 +171,7 @@
       </div>
       <div class="feature-card card-hover reveal">
         <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h11v8H3z"/><path d="M14 10h4l3 3v2h-7z"/><circle cx="7" cy="18" r="1.5"/><circle cx="17" cy="18" r="1.5"/></svg></div>
-        <div><h3>Same-Day Delivery</h3><p>Order before 2pm and get it delivered the same evening.</p></div>
+        <div><h3>Same-Day Delivery</h3><p>Order before 2pm and get it delivered evening.</p></div>
       </div>
       <div class="feature-card card-hover reveal">
         <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
@@ -206,7 +200,7 @@
       <div class="reveal">
         <span class="eyebrow">Delivery</span>
         <h2>Fast, Reliable Home Delivery</h2>
-        <p>We deliver across your city in time slots that fit your schedule, with live tracking from packing to doorstep.</p>
+        <p>We deliver across your city in time slots that fit your schedule, with live tracking from packing to doorstep.Enjoy convenient doorstep delivery with flexible time slots designed around your schedule. Our dedicated logistics network ensures every order is carefully packed, dispatched promptly, and delivered in perfect condition. Track your groceries in real time from packing to your doorstep, receive instant delivery updates, and experience a seamless shopping journey every time.</p>
         <div class="grid grid-2" style="margin-top:1.5rem;gap:1rem;">
           <div class="feature-card" style="padding:1rem;">
             <div class="icon-circle" style="width:46px;height:46px;"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
@@ -219,7 +213,7 @@
         </div>
         <a href="delivery-information.html" class="btn btn-primary" style="margin-top:1.5rem;">Delivery Information</a>
       </div>
-      <div class="reveal"><img src="assets/images/hero-secondary.png" alt="Home delivery illustration" style="border-radius:var(--radius-lg);"></div>
+      <div class="reveal" style="text-align: center;"><img src="assets/images/hero-secondary.png" alt="Home delivery illustration" style="border-radius:var(--radius-lg); max-width: 85%; height: auto; margin: 0 auto; display: block;"></div>
     </div>
   </div>
 </section>
@@ -307,7 +301,7 @@
       <div class="stat-item"><div class="num" data-counter="2500" data-suffix="+">0</div><div class="lbl">Happy Customers</div></div>
       <div class="stat-item"><div class="num" data-counter="1200" data-suffix="+">0</div><div class="lbl">Products Available</div></div>
       <div class="stat-item"><div class="num" data-counter="9800" data-suffix="+">0</div><div class="lbl">Orders Delivered</div></div>
-      <div class="stat-item"><div class="num" data-counter="15" data-suffix="+">0</div><div class="lbl">Years Serving Community</div></div>
+      <div class="stat-item"><div class="num" data-counter="15" data-suffix="+">0</div><div class="lbl">Years Serving</div></div>
     </div>
   </div>
 </section>
@@ -378,9 +372,9 @@
     if (window.FM_PRODUCTS && window.FM_renderProductCard){
       const freshTrack = document.getElementById("freshArrivalsTrack");
       const featuredTrack = document.getElementById("featuredTrack");
-      const fresh = window.FM_PRODUCTS.slice(0,8);
+      const fresh = window.FM_PRODUCTS.slice(0,6);
       const featured = window.FM_PRODUCTS.slice(4,12);
-      fresh.forEach(p => freshTrack.insertAdjacentHTML("beforeend", window.FM_renderProductCard(p, true)));
+      fresh.forEach(p => freshTrack.insertAdjacentHTML("beforeend", window.FM_renderProductCard(p, false)));
       featured.forEach(p => featuredTrack.insertAdjacentHTML("beforeend", window.FM_renderProductCard(p, true)));
     }
   });

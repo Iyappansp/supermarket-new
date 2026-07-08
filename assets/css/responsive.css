@@ -19,15 +19,46 @@
   .grid-5{ grid-template-columns: repeat(3,1fr); }
   .grid-6{ grid-template-columns: repeat(3,1fr); }
   .grid-3{ grid-template-columns: repeat(2,1fr); }
+  
+  /* Center last item if total is odd in 2-column grid-3 */
+  .grid-3 > :last-child:nth-child(odd) {
+    grid-column: span 2;
+    justify-self: center;
+    width: 100%;
+    max-width: calc(50% - 0.75rem);
+  }
 }
 @media (max-width: 767px){
   .grid-2, .grid-3, .grid-4, .grid-5, .grid-6{ grid-template-columns: repeat(2,1fr); gap: 1rem; }
+
+  /* Center last item if total is odd in 2-column grids */
+  .grid-2 > :last-child:nth-child(odd),
+  .grid-3 > :last-child:nth-child(odd),
+  .grid-4 > :last-child:nth-child(odd),
+  .grid-5 > :last-child:nth-child(odd),
+  .grid-6 > :last-child:nth-child(odd) {
+    grid-column: span 2;
+    justify-self: center;
+    width: 100%;
+    max-width: calc(50% - 0.5rem);
+  }
 }
 @media (max-width: 480px){
   /* Default to single column layout on mobile to prevent horizontal squeezing */
   .grid-2, .grid-3, .grid-4, .grid-5, .grid-6 { 
     grid-template-columns: 1fr; 
     gap: .85rem; 
+  }
+
+  /* For single-column grids on mobile, stretch the last odd item */
+  .grid-2 > :last-child:nth-child(odd),
+  .grid-3 > :last-child:nth-child(odd),
+  .grid-4 > :last-child:nth-child(odd),
+  .grid-5 > :last-child:nth-child(odd),
+  .grid-6 > :last-child:nth-child(odd) {
+    grid-column: span 1;
+    justify-self: stretch;
+    max-width: 100%;
   }
   
   /* Preserve 2-column layouts on mobile for specific lists (e.g. products, brands, departments) */
@@ -44,6 +75,25 @@
   #shoppingListGrid,
   #savedProductsGrid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* For 2-column grids on mobile, keep the centered alignment with appropriate width */
+  .grid-2-mobile > :last-child:nth-child(odd),
+  .grid:has(.product-card) > :last-child:nth-child(odd),
+  .grid:has(.dept-card) > :last-child:nth-child(odd),
+  .grid:has(.brand-card) > :last-child:nth-child(odd),
+  #groceryGrid > :last-child:nth-child(odd),
+  #freshProduceGrid > :last-child:nth-child(odd),
+  #householdGrid > :last-child:nth-child(odd),
+  #beveragesGrid > :last-child:nth-child(odd),
+  #bakeryGrid > :last-child:nth-child(odd),
+  #wishlistGrid > :last-child:nth-child(odd),
+  #shoppingListGrid > :last-child:nth-child(odd),
+  #savedProductsGrid > :last-child:nth-child(odd) {
+    grid-column: span 2;
+    justify-self: center;
+    width: 100%;
+    max-width: calc(50% - 0.425rem);
   }
   
   .grid-1-mobile{ grid-template-columns: 1fr; }
@@ -69,9 +119,17 @@
 
 /* ---- Two-column split layouts (hero, content+image) ---- */
 .split{ display:grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items:center; }
+.split img {
+  max-width: 80%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  border-radius: var(--radius-lg);
+}
 @media (max-width: 1023px){
   .split{ grid-template-columns: 1fr; gap: 2rem; }
-  .split.split-reverse-mobile{ direction: ltr; }
+  html:not([dir="rtl"]) .split.split-reverse-mobile{ direction: ltr; }
+  html[dir="rtl"] .split.split-reverse-mobile{ direction: rtl; }
 }
 
 /* ---- Flex row helpers ---- */

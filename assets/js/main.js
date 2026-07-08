@@ -67,22 +67,19 @@
 
   <div class="header-main-wrap">
     <div class="container header-main">
-      <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Open menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-      </button>
-
       <a href="${ROOT}index.html" class="brand">
-        <img src="${ROOT}assets/images/logo.png" alt="FreshlyMarket Logo" style="height: 52px; object-fit: contain;">
+        <img src="${ROOT}assets/images/logo.png" alt="FreshlyMarket Logo" style="height: 64px; object-fit: contain;">
       </a>
 
       <ul class="header-nav">
         <li><a href="${ROOT}index.html">Home</a></li>
         <li><a href="${ROOT}home-2.html">Home 2</a></li>
+                <li><a href="${ROOT}about.html">About</a></li>
+
         <li><a href="${ROOT}delivery-information.html">Delivery Info</a></li>
         <li><a href="${ROOT}departments.html">Departments</a></li>
         <li><a href="${ROOT}fresh-produce.html">Fresh Produce</a></li>
         <li><a href="${ROOT}brands.html">Brands</a></li>
-        <li><a href="${ROOT}about.html">About</a></li>
         <li><a href="${ROOT}contact.html">Contact</a></li>
       </ul>
 
@@ -98,9 +95,13 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15" style="margin-inline-end: 4px;"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
           <span>Dashboard</span>
         </a>
-        <a href="${ROOT}login.html" class="btn btn-primary btn-sm login-btn"><span>Login</span>
+        <a href="${ROOT}login.html" class="btn btn-primary btn-sm login-btn">
+          <span>Login</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
+        <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
       </div>
     </div>
   </div>
@@ -114,7 +115,7 @@
   <aside class="mobile-drawer" id="mobileDrawer">
     <div class="mobile-drawer-head">
       <a href="${ROOT}index.html" class="brand" style="font-size:1.1rem;">
-        <img src="${ROOT}assets/images/logo.png" alt="FreshlyMarket Logo" style="height: 42px; object-fit: contain;">
+        <img src="${ROOT}assets/images/logo.png" alt="FreshlyMarket Logo" style="height: 48px; object-fit: contain;">
       </a>
       <button class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Close menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
@@ -123,16 +124,20 @@
     <div class="mobile-drawer-body">
       <a class="mob-link" href="${ROOT}index.html">Home</a>
       <a class="mob-link" href="${ROOT}home-2.html">Home 2</a>
+            <a class="mob-link" href="${ROOT}about.html">About</a>
+
       <a class="mob-link" href="${ROOT}delivery-information.html">Delivery Info</a>
       <a class="mob-link" href="${ROOT}departments.html">Departments</a>
       <a class="mob-link" href="${ROOT}fresh-produce.html">Fresh Produce</a>
       <a class="mob-link" href="${ROOT}wishlist.html">Wishlist</a>
       <a class="mob-link" href="${ROOT}brands.html">Brands</a>
-      <a class="mob-link" href="${ROOT}about.html">About</a>
       <a class="mob-link" href="${ROOT}contact.html">Contact</a>
       <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:.75rem;">
+        <a href="${DASHBOARD_LINK}" class="btn btn-outline btn-block dashboard-drawer-btn" style="display:flex; align-items:center; justify-content:center; gap:0.5rem;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+          Dashboard
+        </a>
         <a href="${ROOT}login.html" class="btn btn-primary btn-block">Login</a>
-        <a href="${ROOT}signup.html" class="btn btn-outline btn-block">Create Account</a>
       </div>
       <div class="drawer-utility" style="margin-top:2rem; padding-top:1.5rem; border-top:1px solid var(--color-border); display:flex; justify-content:space-between; align-items:center; gap:1rem;">
         <span style="font-size:0.88rem; font-weight:600; color:var(--text-secondary);">Settings</span>
@@ -156,7 +161,7 @@
     <div class="footer-top">
       <div class="footer-brand">
         <a href="${ROOT}index.html" class="brand">
-          <img src="${ROOT}assets/images/logo.png" alt="FreshlyMarket Logo" style="height: 52px; object-fit: contain;">
+          <img src="${ROOT}assets/images/logo.png" alt="FreshlyMarket Logo" style="height: 60px; object-fit: contain;">
         </a>
         <p>Your neighborhood supermarket online — fresh produce, everyday essentials, and weekly deals delivered to your door, with the warmth and trust of a local store.</p>
         <div class="footer-social">
@@ -168,31 +173,31 @@
       <div class="footer-col">
         <h6>Departments</h6>
         <ul>
-          <li><a href="${ROOT}fresh-produce.html">Fresh Produce</a></li>
-          <li><a href="${ROOT}grocery.html">Grocery</a></li>
-          <li><a href="${ROOT}bakery.html">Bakery</a></li>
-          <li><a href="${ROOT}beverages.html">Beverages</a></li>
-          <li><a href="${ROOT}household.html">Household</a></li>
-          <li><a href="${ROOT}departments.html">All Departments</a></li>
+          <li><a href="${ROOT}index.html">Fresh Produce</a></li>
+          <li><a href="${ROOT}index.html">Grocery</a></li>
+          <li><a href="${ROOT}index.html">Bakery</a></li>
+          <li><a href="${ROOT}index.html">Beverages</a></li>
+          <li><a href="${ROOT}index.html">Household</a></li>
+          <li><a href="${ROOT}index.html">All Departments</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h6>Customer Service</h6>
         <ul>
-          <li><a href="${ROOT}contact.html">Contact Us</a></li>
-          <li><a href="${ROOT}faq.html">FAQs</a></li>
-          <li><a href="${ROOT}track-order.html">Track Order</a></li>
-          <li><a href="${ROOT}shopping-list.html">Shopping Lists</a></li>
-          <li><a href="${ROOT}login.html">My Account</a></li>
+          <li><a href="${ROOT}index.html">Contact Us</a></li>
+          <li><a href="${ROOT}index.html">FAQs</a></li>
+          <li><a href="${ROOT}index.html">Track Order</a></li>
+          <li><a href="${ROOT}index.html">Shopping Lists</a></li>
+          <li><a href="${ROOT}index.html">My Account</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h6>Delivery</h6>
         <ul>
-          <li><a href="${ROOT}delivery-information.html">Delivery Zones</a></li>
-          <li><a href="${ROOT}delivery-information.html#charges">Delivery Charges</a></li>
-          <li><a href="${ROOT}delivery-information.html#slots">Time Slots</a></li>
-          <li><a href="${ROOT}delivery-information.html#pickup">Click & Collect</a></li>
+          <li><a href="${ROOT}index.html">Delivery Zones</a></li>
+          <li><a href="${ROOT}index.html">Delivery Charges</a></li>
+          <li><a href="${ROOT}index.html">Time Slots</a></li>
+          <li><a href="${ROOT}index.html">Click & Collect</a></li>
         </ul>
       </div>
       <div class="footer-col footer-newsletter">
@@ -216,7 +221,7 @@
       <div class="footer-bottom-links">
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Service</a>
-        <a href="${ROOT}faq.html">FAQ</a>
+        <a href="${ROOT}index.html">FAQ</a>
       </div>
     </div>
   </div>
@@ -270,6 +275,7 @@
 
     bindLayoutEvents();
     markActiveNav();
+    initPasswordToggles();
   }
 
   /* ---------------------------------------------------
@@ -277,14 +283,14 @@
   --------------------------------------------------- */
   function bindLayoutEvents() {
     // Theme toggle
-    document.querySelectorAll(".theme-toggle").forEach(themeBtn => {
+    document.querySelectorAll(".theme-toggle, .pref-theme-toggle").forEach(themeBtn => {
       themeBtn.addEventListener("click", () => {
         const next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
         applyTheme(next);
       });
     });
     // RTL toggle
-    document.querySelectorAll(".rtl-toggle").forEach(rtlBtn => {
+    document.querySelectorAll(".rtl-toggle, .pref-rtl-toggle").forEach(rtlBtn => {
       rtlBtn.addEventListener("click", () => {
         const next = document.documentElement.getAttribute("dir") === "rtl" ? "ltr" : "rtl";
         applyDir(next);
@@ -323,6 +329,30 @@
     if (backToTop) {
       backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
     }
+  }
+
+  /* ---------------------------------------------------
+     7.5 PASSWORD TOGGLE VISIBILITY
+  --------------------------------------------------- */
+  function initPasswordToggles() {
+    document.querySelectorAll(".password-input-wrap").forEach(wrap => {
+      const input = wrap.querySelector("input");
+      const btn = wrap.querySelector(".password-toggle-btn");
+      if (!input || !btn || btn.dataset.bound) return;
+      btn.dataset.bound = "true";
+
+      const eye = btn.querySelector(".eye-icon");
+      const eyeOff = btn.querySelector(".eye-off-icon");
+
+      btn.addEventListener("click", () => {
+        const isPass = input.type === "password";
+        input.type = isPass ? "text" : "password";
+        if (eye && eyeOff) {
+          eye.style.display = isPass ? "none" : "block";
+          eyeOff.style.display = isPass ? "block" : "none";
+        }
+      });
+    });
   }
 
   /* ---------------------------------------------------
