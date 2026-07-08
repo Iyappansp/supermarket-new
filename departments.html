@@ -109,14 +109,14 @@
       </div>
 
       <div class="reveal" style="max-width: 800px; margin: 0 auto; background: var(--surface-card); padding: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--color-border); box-shadow: var(--shadow-md);">
-        <div style="display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap;">
+        <div class="seasonal-filter-container">
           <button type="button" class="btn btn-outline seasonal-btn active" onclick="showSeason(this, 'spring')" style="min-width: 120px; font-weight:600;">Spring</button>
           <button type="button" class="btn btn-outline seasonal-btn" onclick="showSeason(this, 'summer')" style="min-width: 120px; font-weight:600;">Summer</button>
           <button type="button" class="btn btn-outline seasonal-btn" onclick="showSeason(this, 'autumn')" style="min-width: 120px; font-weight:600;">Autumn</button>
           <button type="button" class="btn btn-outline seasonal-btn" onclick="showSeason(this, 'winter')" style="min-width: 120px; font-weight:600;">Winter</button>
         </div>
 
-        <div id="seasonalItemsContainer" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+        <div id="seasonalItemsContainer" class="seasonal-grid">
           <!-- Items will be loaded dynamically by script -->
         </div>
       </div>

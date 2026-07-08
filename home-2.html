@@ -218,6 +218,60 @@
     transform: scale(1.03);
     box-shadow: var(--shadow-lg);
   }
+
+  @media (max-width: 576px) {
+    /* Stack recipe planner tabs vertically */
+    .recipe-tabs {
+      flex-direction: column;
+      overflow-x: visible;
+      padding-bottom: 0;
+      gap: 0.5rem;
+    }
+    .recipe-tab {
+      width: 100%;
+      text-align: center;
+      white-space: normal;
+    }
+    
+    /* Stack recipe ingredients in a single column and adjust card paddings */
+    .recipe-planner-card {
+      padding: 1.5rem 1.25rem;
+    }
+    .recipe-ingredients {
+      grid-template-columns: 1fr;
+    }
+    .recipe-details .btn {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      white-space: normal;
+    }
+    
+    /* Stack rewards calculator output vertically and fix card spacing */
+    .calc-output {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    .calc-card {
+      padding: 1.5rem 1.25rem;
+    }
+    .calc-card .btn {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      white-space: normal;
+    }
+
+    /* Reduce spacing for spotlight card on mobile */
+    .spotlight-text {
+      padding: 1.5rem 1.25rem;
+    }
+
+    /* Reduce spacing for recipe section on mobile */
+    .recipe-section {
+      padding: 3rem 0 !important;
+    }
+  }
 </style>
 </head>
 <body>

@@ -54,6 +54,10 @@
   const headerHTML = `
   <div class="header-main-wrap dashboard-header-wrap">
     <div class="container header-main">
+      <button class="dash-mobile-toggle" id="dashMobileToggle" aria-label="Open dashboard menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+
       <a href="${ROOT}index.html" class="brand" title="Return to Storefront">
         <img src="${ROOT}assets/images/logo.png" alt="FreshlyMarket Logo" style="height: 64px; object-fit: contain;">
       </a>

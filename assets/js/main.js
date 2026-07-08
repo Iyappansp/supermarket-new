@@ -160,7 +160,7 @@
     <div class="footer-top">
       <div class="footer-brand">
         <a href="${ROOT}index.html" class="brand">
-          <img src="${ROOT}assets/images/logo.png" alt="FreshlyMarket Logo" style="height: 60px; object-fit: contain;">
+          <img src="${ROOT}assets/images/logo.png" alt="FreshlyMarket Logo" style="height: 90px; object-fit: contain;">
         </a>
         <p>Your neighborhood supermarket online — fresh produce, everyday essentials, and weekly deals delivered to your door, with the warmth and trust of a local store.</p>
         <div class="footer-social">

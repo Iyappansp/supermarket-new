@@ -1034,6 +1034,10 @@ textarea.form-control {
   align-items: flex-start;
   padding: 1.5rem;
 }
+.contact-info-card > div:last-child {
+  min-width: 0;
+  flex: 1;
+}
 
 .map-placeholder {
   background: var(--surface-2);

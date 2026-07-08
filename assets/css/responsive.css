@@ -122,7 +122,7 @@
     max-width: 100%;
   }
 
-  /* Preserve 2-column layouts on mobile for specific lists (e.g. products, brands) */
+  /* Stack mobile layouts for all grids to prevent squeezing and overflow */
   .grid-2-mobile,
   .grid:has(.product-card),
   .grid:has(.brand-card),
@@ -134,10 +134,10 @@
   #wishlistGrid,
   #shoppingListGrid,
   #savedProductsGrid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
 
-  /* For 2-column grids on mobile, keep the centered alignment with appropriate width */
+  /* For stacked grids on mobile, keep alignment at full width */
   .grid-2-mobile> :last-child:nth-child(odd),
   .grid:has(.product-card)> :last-child:nth-child(odd),
   .grid:has(.brand-card)> :last-child:nth-child(odd),
@@ -149,10 +149,10 @@
   #wishlistGrid> :last-child:nth-child(odd),
   #shoppingListGrid> :last-child:nth-child(odd),
   #savedProductsGrid> :last-child:nth-child(odd) {
-    grid-column: span 2;
-    justify-self: center;
+    grid-column: span 1;
+    justify-self: stretch;
     width: 100%;
-    max-width: calc(50% - 0.425rem);
+    max-width: 100%;
   }
 
   .grid-1-mobile {
@@ -487,5 +487,60 @@ code {
 @media (max-width: 480px) {
   .social-auth {
     flex-direction: column;
+  }
+}
+
+/* Custom responsive grids and flex containers replacing inline styles */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 2.5rem;
+}
+.shopping-list-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+.seasonal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+.seasonal-filter-container {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+.delivery-est-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .contact-grid,
+  .shopping-list-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .seasonal-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .seasonal-filter-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .seasonal-filter-container .seasonal-btn {
+    width: 100% !important;
+    margin-bottom: 0.25rem;
+  }
+  .delivery-est-grid {
+    grid-template-columns: 1fr;
   }
 }
