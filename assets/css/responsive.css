@@ -557,3 +557,56 @@ code {
     grid-template-columns: 1fr;
   }
 }
+
+/* =========================================================
+   NARROW VIEWPORT MOBILE SAFETY OVERRIDES (<= 480px / <= 360px)
+   ========================================================= */
+
+/* 1. Global Text Wrapping Safety (prevent long emails/links/words from causing scroll) */
+body, p, a, span, h1, h2, h3, h4, h5, h6, li, td, th {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* 2. Off-screen mobile drawer visibility control to prevent overflow rendering */
+.mobile-drawer {
+  visibility: hidden;
+  transition: inset-inline-end var(--transition-slow), visibility var(--transition-slow);
+}
+.mobile-drawer.open {
+  visibility: visible;
+}
+
+/* 3. Narrow container adjustments for maximum width on small screens */
+@media (max-width: 360px) {
+  .container {
+    padding: 0 0.75rem !important;
+  }
+}
+
+/* 4. Reduced padding/gaps for cards on mobile to maximize content width */
+@media (max-width: 480px) {
+  .contact-info-card {
+    padding: 1rem !important;
+    gap: 0.75rem !important;
+  }
+  .contact-info-card .icon-circle {
+    width: 42px !important;
+    height: 42px !important;
+  }
+  .contact-info-card .icon-circle svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  .feature-card {
+    padding: 1rem !important;
+    gap: 0.75rem !important;
+  }
+}
+
+/* 5. Footer newsletter input flex shrink safety */
+.footer-newsletter input {
+  min-width: 0 !important;
+  width: 100% !important;
+}
