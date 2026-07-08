@@ -5,7 +5,7 @@
    This file is shared by EVERY page in the storefront.
    ========================================================= */
 
-(function(){
+(function () {
   "use strict";
 
   /* ---------------------------------------------------
@@ -22,10 +22,10 @@
   /* ---------------------------------------------------
      1. THEME (Dark / Light) — applied ASAP to avoid flash
   --------------------------------------------------- */
-  function getStoredTheme(){
+  function getStoredTheme() {
     return localStorage.getItem("fm-theme") || "light";
   }
-  function applyTheme(theme){
+  function applyTheme(theme) {
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("fm-theme", theme);
   }
@@ -35,10 +35,10 @@
   /* ---------------------------------------------------
      2. RTL / LTR — applied ASAP as well
   --------------------------------------------------- */
-  function getStoredDir(){
+  function getStoredDir() {
     return localStorage.getItem("fm-dir") || "ltr";
   }
-  function applyDir(dir){
+  function applyDir(dir) {
     document.documentElement.setAttribute("dir", dir);
     document.documentElement.setAttribute("lang", dir === "rtl" ? "ar" : "en");
     localStorage.setItem("fm-dir", dir);
@@ -113,23 +113,23 @@
   /* ---------------------------------------------------
      6. INJECT HEADER / FOOTER / DRAWER
   --------------------------------------------------- */
-  function injectLayout(){
+  function injectLayout() {
     const headerEl = document.getElementById("main-header");
     const footerEl = document.getElementById("main-footer");
-    if (headerEl){
+    if (headerEl) {
       headerEl.className = "site-header";
       headerEl.innerHTML = headerHTML;
       document.body.insertAdjacentHTML("afterbegin", drawerHTML);
       applyDir(getStoredDir());
     }
-    if (footerEl){
+    if (footerEl) {
       footerEl.style.display = "none";
     }
     // Back to top button
     const btt = document.createElement("button");
     btt.className = "back-to-top";
     btt.id = "backToTop";
-    btt.setAttribute("aria-label","Back to top");
+    btt.setAttribute("aria-label", "Back to top");
     btt.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>`;
     document.body.appendChild(btt);
 
@@ -141,7 +141,7 @@
   /* ---------------------------------------------------
      7. EVENT BINDINGS (theme, rtl, mobile nav, scroll)
   --------------------------------------------------- */
-  function bindLayoutEvents(){
+  function bindLayoutEvents() {
     // Theme toggle
     document.querySelectorAll(".theme-toggle").forEach(themeBtn => {
       themeBtn.addEventListener("click", () => {
@@ -162,15 +162,15 @@
     const overlay = document.getElementById("drawerOverlay");
     const openBtn = document.getElementById("mobileNavToggle");
     const closeBtn = document.getElementById("mobileDrawerClose");
-    function openDrawer(){ drawer.classList.add("open"); overlay.classList.add("open"); document.body.style.overflow="hidden"; }
-    function closeDrawer(){ drawer.classList.remove("open"); overlay.classList.remove("open"); document.body.style.overflow=""; }
+    function openDrawer() { drawer.classList.add("open"); overlay.classList.add("open"); document.body.style.overflow = "hidden"; }
+    function closeDrawer() { drawer.classList.remove("open"); overlay.classList.remove("open"); document.body.style.overflow = ""; }
     if (openBtn) openBtn.addEventListener("click", openDrawer);
     if (closeBtn) closeBtn.addEventListener("click", closeDrawer);
     if (overlay) overlay.addEventListener("click", closeDrawer);
 
     const deptToggle = document.getElementById("mobDeptToggle");
     const deptSub = document.getElementById("mobDeptSub");
-    if (deptToggle){
+    if (deptToggle) {
       deptToggle.addEventListener("click", (e) => {
         e.preventDefault();
         deptSub.classList.toggle("open");
@@ -186,8 +186,8 @@
       if (header) header.classList.toggle("is-scrolled", scrolled);
       if (backToTop) backToTop.classList.toggle("show", window.scrollY > 480);
     });
-    if (backToTop){
-      backToTop.addEventListener("click", () => window.scrollTo({ top:0, behavior:"smooth" }));
+    if (backToTop) {
+      backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
     }
   }
 
@@ -218,18 +218,18 @@
   /* ---------------------------------------------------
      8. ACTIVE NAV HIGHLIGHTING
   --------------------------------------------------- */
-  function markActiveNav(){
+  function markActiveNav() {
     const current = window.location.pathname.split("/").pop() || "index.html";
     document.querySelectorAll(".header-nav > li > a, .mobile-drawer .mob-link").forEach(a => {
       const href = a.getAttribute("href");
-      if (href && href.endsWith(current) && current !== "" ) a.classList.add("active");
+      if (href && href.endsWith(current) && current !== "") a.classList.add("active");
     });
   }
 
   /* ---------------------------------------------------
      9. INIT
   --------------------------------------------------- */
-  if (document.readyState === "loading"){
+  if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", injectLayout);
   } else {
     injectLayout();

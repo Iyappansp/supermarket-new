@@ -129,7 +129,6 @@
       <a class="mob-link" href="${ROOT}delivery-information.html">Delivery Info</a>
       <a class="mob-link" href="${ROOT}departments.html">Departments</a>
       <a class="mob-link" href="${ROOT}fresh-produce.html">Fresh Produce</a>
-      <a class="mob-link" href="${ROOT}wishlist.html">Wishlist</a>
       <a class="mob-link" href="${ROOT}brands.html">Brands</a>
       <a class="mob-link" href="${ROOT}contact.html">Contact</a>
       <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:.75rem;">
