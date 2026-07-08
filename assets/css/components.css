@@ -1535,6 +1535,7 @@ textarea.form-control {
   inset-inline-end: 1.5rem;
   display: flex;
   gap: 0.5rem;
+  align-items: center;
   z-index: 10;
 }
 
@@ -1596,7 +1597,7 @@ textarea.form-control {
 
 /* Auth card logo display fix & dark theme contrast plate */
 .auth-card .auth-logo img {
-  height: 80px; /* Simple and bigger! */
+  height: 96px; /* Simple and bigger! */
   width: auto;
   display: block;
   object-fit: contain;
@@ -1739,4 +1740,25 @@ textarea.form-control {
 /* Custom override to make product image container in Fresh Arrivals slightly smaller */
 #freshArrivalsTrack .product-card .card-img-zoom {
   aspect-ratio: 5/4;
+}
+
+/* Mobile responsive overrides for Auth card layout */
+@media (max-width: 480px) {
+  .auth-shell {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 5.5rem;
+    padding-bottom: 2rem;
+  }
+
+  .auth-utility {
+    top: 1rem;
+    inset-inline-end: 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .auth-card {
+    padding: 1.25rem 1rem;
+  }
 }

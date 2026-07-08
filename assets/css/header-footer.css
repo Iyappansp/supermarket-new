@@ -773,7 +773,7 @@
   }
 
   .brand img {
-    height: 52px !important;
+    height: 64px !important;
   }
 }
 
@@ -783,7 +783,7 @@
   }
 
   .brand img {
-    height: 44px !important;
+    height: 58px !important;
   }
 
   .header-main {
@@ -799,18 +799,38 @@
   }
 
   .rtl-toggle {
-    padding: 0.25rem 0.4rem;
-    font-size: 0.76rem;
+    width: auto !important;
+    min-width: 44px !important;
+    height: 34px !important;
+    border-radius: 17px !important;
+    padding: 0 0.55rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 0.74rem !important;
   }
 
-  .theme-toggle {
-    width: 34px;
-    height: 34px;
+  .theme-toggle,
+  .notification-toggle {
+    width: 34px !important;
+    height: 34px !important;
+    border-radius: 50% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
-  .theme-toggle svg {
+  .theme-toggle svg,
+  .notification-toggle svg {
     width: 15px;
     height: 15px;
+  }
+
+  .notification-badge {
+    top: 8px;
+    right: 8px;
+    width: 6px;
+    height: 6px;
   }
 
   .login-btn {

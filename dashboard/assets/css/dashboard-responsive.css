@@ -43,12 +43,22 @@
 .dash-main table{ width:100%; }
 .dash-main img{ max-width:100%; }
 
-/* Keep RTL toggle visible on mobile dashboard header */
-@media (max-width: 1023px) {
+/* Keep header utility icons visible on mobile & tablet dashboard headers */
+@media (max-width: 1024px) {
   .dashboard-header-wrap .header-utility {
     display: flex !important;
   }
   .dashboard-header-wrap .rtl-toggle {
     display: flex !important;
+  }
+}
+
+/* Adjust dashboard header sizing on extra-small mobile viewports to prevent overflow at 320px */
+@media (max-width: 480px) {
+  .dashboard-header-wrap .container {
+    padding: 0 0.5rem !important;
+  }
+  .dashboard-header-wrap .header-utility {
+    gap: 0.25rem !important;
   }
 }

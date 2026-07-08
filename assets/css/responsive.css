@@ -519,6 +519,16 @@ code {
   gap: 1rem;
 }
 
+.seasonal-card {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--surface-card);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+}
+
 @media (max-width: 768px) {
   .contact-grid,
   .shopping-list-grid {
@@ -528,6 +538,9 @@ code {
 }
 
 @media (max-width: 576px) {
+  .seasonal-card {
+    padding: 1.25rem 1rem;
+  }
   .seasonal-grid {
     grid-template-columns: 1fr;
     gap: 1rem;

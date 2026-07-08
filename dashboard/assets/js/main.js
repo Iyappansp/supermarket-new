@@ -59,7 +59,7 @@
       </button>
 
       <a href="${ROOT}index.html" class="brand" title="Return to Storefront">
-        <img src="${ROOT}assets/images/logo.png" alt="FreshlyMarket Logo" style="height: 64px; object-fit: contain;">
+        <img src="${ROOT}assets/images/logo.png" alt="FreshlyMarket Logo" style="height: 80px; object-fit: contain;">
       </a>
 
       <div class="header-actions">
@@ -89,7 +89,7 @@
   <aside class="mobile-drawer" id="mobileDrawer">
     <div class="mobile-drawer-head">
       <a href="${ROOT}index.html" class="brand" style="font-size:1.1rem;">
-        <img src="${ROOT}assets/images/logo.png" alt="FreshlyMarket Logo" style="height: 48px; object-fit: contain;">
+        <img src="${ROOT}assets/images/logo.png" alt="FreshlyMarket Logo" style="height: 60px; object-fit: contain;">
       </a>
       <button class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Close menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
